@@ -1,0 +1,85 @@
+.navbar-nav a {
+    font-family: poppins;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.navbar-light .navbar-brand {
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: turquoise;
+    transition: 1s;
+}
+
+.navbar-light .navbar-nav .prosection ul li a:hover {
+    color: turquoise;
+    transition: 1s;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.nav-link {
+    padding: .2rem 1rem;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .navbar-nav.ml-auto {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-toggler {
+        padding: 1px 5px;
+        font-size: 18px;
+        line-height: 0.3;
+        background: #fff;
+    }
+}
+.prosection {
+    display: none;
+}
+
+.navbar-collapse ul li:hover .prosection {
+    display: block;
+    background-color: transparent;
+    position: sticky;
+    margin-top: 5px;
+    margin-left: -15px;
+    color: white;
+}
+
+.navbar-collapse ul li:hover .prosection ul {
+    display: block;
+    position: absolute;
+
+}
+
+.navbar-collapse ul li:hover .prosection ul li {
+    width: 100px;
+    padding: 4px;
+    text-align: center;
+    background: transparent;
+    border-radius: 20px;
+
+}
+.navbar-collapse ul li:hover .prosection ul li:last-child {
+    border-bottom: none;
+
+}
+
+.mainmenu ul li:hover .prosection ul li a:hover {
+    color: turquoise
+}

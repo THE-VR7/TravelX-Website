@@ -1,0 +1,72 @@
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="home2.html" onsubmit="return validate()">
+            <h1>Log In</h1>
+            <div class="social-container">
+            <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social"><i class="fa fa-google"></i></a>
+            <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <span>or use your account</span>
+        <input type="text" name="username" id="tuname" placeholder="username">
+        <input type="password" name="password" id="tpass" placeholder="Password">
+        <button type="submit">Log In</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hey, User!</h1>
+                <p>Don't, have an account ?</p>
+                <a [routerLink]="[ '/signup']"><button class="ghost">Sign Up</button></a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function validate() {
+            let user = document.getElementById("tuname");
+            let pass = document.getElementById("tpass");
+            if (user.value.trim() == "") {
+                alert("Invalid Username");
+                return false;
+            }
+            else if (pass.value.trim() == "") {
+                alert("Invalid Password")
+                return false;
+            }
+            else if (pass.value.trim() == "" || user.value.trim() == "") {
+                alert("Invalid Username & Password")
+                return false;
+            }
+            else if (pass.value.trim().length < 5) {
+                alert("Password length less than 5");
+                return false;
+            }
+            else {
+                var fmov = user.value;
+                sessionStorage.setItem("fmov",fmov);
+                return true;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+    
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
+    
