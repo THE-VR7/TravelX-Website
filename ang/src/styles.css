@@ -7,15 +7,7 @@
             scroll-behavior: smooth;
 
         }
-        .header {
-            height: 750px;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding-top: 20px;
-            text-align: center;
-            color: white;
-        }
+        
 
         .login-btn {
             width: 100px;
@@ -101,11 +93,3 @@
         .npful li a:hover {
             color: turquoise;
         }
-        .GreyHeader{
-        background-color: transparent;
-        }
-
-        .FireBrickRed {
-        background-color: black;
-        }
-    

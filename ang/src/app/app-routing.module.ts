@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { TourpackagesComponent } from './tourpackages/tourpackages.component';
 import { PackageComponent } from './tourpackages/package/package.component';
+import { LinksComponent } from './aboutus/links/links.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home',pathMatch:'full'},
@@ -12,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'tourpackage', component: TourpackagesComponent},
-  { path: 'package', component: PackageComponent}
+  { path: 'package', component: PackageComponent},
+  { path: 'FAQ',component: LinksComponent}
 ];
 
 @NgModule({

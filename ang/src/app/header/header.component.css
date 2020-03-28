@@ -1,40 +1,53 @@
-.navbar-nav a {
+.top-navbar {
+    /* border: 1px solid black; */
+    /* background-color: black; */
     font-family: poppins;
     font-size: 18px;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.navbar-light .navbar-brand {
-    color: #fff;
+.navbar-dark .navbar-brand {
     font-size: 25px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
+    background-color: black;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: #fff;
-}
 
-.navbar-light .navbar-nav .nav-link:hover {
+
+/* .navbar-dark .navbar-nav  ul li a:hover {
     color: turquoise;
     transition: 1s;
-}
-
-.navbar-light .navbar-nav .prosection ul li a:hover {
-    color: turquoise;
-    transition: 1s;
-}
+} */
 
 .navbar-nav {
     text-align: center;
 }
 
 .nav-link {
-    padding: .2rem 1rem;
+    padding: .2rem 2rem;
+    margin: 0px 10px;
+}
+.nav-link.active {
+    background-color: rgb(13, 230, 13) ;
+    border: 1px transparent white;
+    border-radius: 7px ;
+    /* border-bottom: ; */
+}
+.nav-link.active:hover {
+    color: black !important ;
+    transition: 1s;
+}
+.navbar-nav .nav-link:hover {
+    color: turquoise;
+    transition: 1s;
 }
 
+/* .navbar-dark .navbar-nav .nav-link:hover {
+    
+} */
 
 @media only screen and (max-width: 767px) {
     .navbar-nav.ml-auto {
@@ -45,41 +58,49 @@
         padding: 1px 5px;
         font-size: 18px;
         line-height: 0.3;
-        background: #fff;
+        background: transparent;
+        border: none;
+        outline: none;
     }
-}
-.prosection {
-    display: none;
+    
 }
 
-.navbar-collapse ul li:hover .prosection {
+.navbar-collapse ul li:hover  {
     display: block;
     background-color: transparent;
     position: sticky;
-    margin-top: 5px;
-    margin-left: -15px;
-    color: white;
+    /* margin-top: 5px;
+    margin-left: -15px; */
+    /* color: white; */
 }
+/* 
+            NOT USING RIGHT NOW, WILL BE USED WHEN CREATED LIST OF PROFILE
 
-.navbar-collapse ul li:hover .prosection ul {
+.navbar-collapse ul li:hover  ul {
     display: block;
-    position: absolute;
-
-}
-
-.navbar-collapse ul li:hover .prosection ul li {
+} */
+/* 
+.navbar-collapse ul li:hover  ul li {
     width: 100px;
     padding: 4px;
     text-align: center;
     background: transparent;
-    border-radius: 20px;
+    border-radius: 50px;
 
 }
-.navbar-collapse ul li:hover .prosection ul li:last-child {
+.navbar-collapse ul li:hover  ul li:last-child {
     border-bottom: none;
 
 }
 
-.mainmenu ul li:hover .prosection ul li a:hover {
+.mainmenu ul li:hover  ul li a:hover {
     color: turquoise
-}
+} */
+
+.GreyHeader{
+    background-color: transparent;
+    }
+
+    .FireBrickRed {
+    background-color: black;
+    }

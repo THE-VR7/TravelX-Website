@@ -1,6 +1,9 @@
-        *{
+        /* *{
             margin: 0px;
             padding: 0px;
+        } */
+        .pack1 {
+            
         }
      .mar{
          margin-top: 1%;
@@ -83,8 +86,8 @@ input{
     background-image:linear-gradient((0,0,0,0.6),(0,0,0,0.6));
 }
 .container-fluid{
-    margin: 0px;
-    padding: 0px;
+    margin-top: 50px;
+    padding: 0px 0px 0px 0px;
 }
 
 .features {

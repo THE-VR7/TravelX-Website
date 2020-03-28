@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { TourpackagesComponent } from './tourpackages/tourpackages.component';
 import { PackageComponent } from './tourpackages/package/package.component';
+import { LinksComponent } from './aboutus/links/links.component';
+import { ConfigService } from './config.service';
 
 
 @NgModule({
@@ -26,13 +28,14 @@ import { PackageComponent } from './tourpackages/package/package.component';
     LoginComponent,
     SignupComponent,
     TourpackagesComponent,
-    PackageComponent
+    PackageComponent,
+    LinksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
