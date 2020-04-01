@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfigService} from '../config.service';
+
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  feedback = {}
+
+  constructor(private config:ConfigService ) { }
 
   ngOnInit() {
+    this.feedback = this.getfeedback();
+
+  }
+
+  getfeedback(){
+    return this.config.getConfig().feedback;
   }
 
 }

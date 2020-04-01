@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-aboutus',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutusComponent implements OnInit {
 
-  constructor() { }
+  intro = {  };
+
+
+  constructor( private config:ConfigService ) { }
 
   ngOnInit() {
+    this.intro = this.getintro();
   }
 
+  getintro(){
+    return this.config.getConfig().aboutus;
+  }
 }

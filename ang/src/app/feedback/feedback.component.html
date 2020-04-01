@@ -1,38 +1,16 @@
 <section class="users-feedback">
-    <h1 style="text-align: center;font-family: sans-serif;font-weight: 700;">Costumers Reviews</h1>
+    <h1 style="text-align: center;font-family: sans-serif;font-weight: 700;">{{feedback.title}}</h1>
     <div class="container">
         <div class="row animatedParent animateOnce">
-            <div class="col-md-4 slower animated fadeInLeft box">
+            <div class="col-md-4 slower animated fadeInLeft box" *ngFor="let review of feedback.reviews" >
                 <div class="users-review">
-                    <p>Definately, a great place to choose your vacation destination, with
-                        great offers.
+                    <p>{{review.description}}
                     </p>
-                    <h5>John Doe</h5>
-                    <small>Chicago</small>
+                    <h5>{{review.name}}</h5>
+                    <small>{{review.place}}</small>
                 </div>
                 <img
-                    src="https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-            </div>
-            <div class="col-md-4 slower animated fadeInLeft box delay-500">
-                <div class="users-review">
-                    <p>Definately, a great place to choose your vacation destination, with
-                        great offers.
-                    </p>
-                    <h5>Jane Doe</h5>
-                    <small>Melbourne</small>
-                </div>
-                <img src="https://i.pinimg.com/originals/62/03/8e/62038ed2eee55edc230ba7604ed24b41.jpg">
-            </div>
-            <div class="col-md-4 slower animated fadeInLeft box delay-1000">
-                <div class="users-review">
-                    <p>Definately, a great place to choose your vacation destination, with
-                        great offers.
-                    </p>
-                    <h5>Harry Doe</h5>
-                    <small>New Delhi</small>
-                </div>
-                <img
-                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                    src="assets/images/feedback/person/{{review.pic}}">
             </div>
         </div>
     </div>
