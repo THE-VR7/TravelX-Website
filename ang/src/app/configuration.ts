@@ -121,7 +121,7 @@ tourpackages: {
         image: "hongkong.jpg"
       },
       {
-        place: "Bankok",
+        place: "Bangkok",
         rating: "3.0",
         price : "35,000 INR",
         image: "bangkok.jpg"

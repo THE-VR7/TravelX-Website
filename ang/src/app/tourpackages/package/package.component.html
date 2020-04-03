@@ -1,6 +1,5 @@
 <div class="pack1">
-<div class="container-fluid" >
-        
+  <div class="container-fluid">
     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="border-radius:20px;">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -8,29 +7,16 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
-  
+
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-  
-        <div class="item active">
-          <img style="height: 650px; width: 100%;" src="https://i1.wp.com/www.wallpaperstrom.com/wp-content/uploads/2018/08/harbour-bridge-sydney-hd-wallpapers-download-free.jpg?fit=1920%2C1080">
-         
+
+        <div class="item" *ngFor="let image of package.sliderimg">
+          <img style="height: 450px; width: 100%;" src="assets/images/features/{{image}}">
         </div>
-  
-        <div class="item">
-          <img style="height: 650px; width: 100%;"  src="https://wallpaperplay.com/walls/full/c/a/c/156672.jpg" >
-          
-          
-        </div>
-      
-        <div class="item">
-          <img style="height: 650px; width: 100%;"  src="https://images.wallpaperscraft.com/image/sydney_opera_house_night_city_harbor_125711_1920x1080.jpg" >
-          
-          
-        </div>
-    
+
       </div>
-  
+
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -42,101 +28,57 @@
       </a>
     </div>
   </div>
-  
-<h1 class="mar" style="color: brown;">Sydney | 7 Nights 6 Days </h1>
-<hr class="mar">
-<h2 class="mar"style="color: brown;">About Itinerary</h2>
-<p class="mar" style="font-size: 15px;font-family: Verdana, Geneva, Tahoma, sans-serif;line-height: 1.5em;word-spacing: 0.8em;">
-    Sydney, capital of New South Wales and one of Australia's largest cities, is best known for its harbourfront Sydney Opera House, with a distinctive sail-like design. Massive Darling Harbour and the smaller Circular Quay port are hubs of waterside life, with the arched Harbour Bridge and esteemed Roy
-    Despite being one of the most expensive cities in the world, Sydney frequently ranks in the top ten of lists of the most livable cities in the world. </p>
-<h2 class="mar" style="color: brown;">Inclusions</h2>
-<h3 class="mar" style="color: brown;font-size: 25px;">-&nbspHotels Included</h3>
-<span class="mar" style="font-size: 20px;font-family: Verdana, Geneva, Tahoma, sans-serif; ">&nbsp &nbsp &nbspPark Hyatt Sydney</span>
 
+  <h1 class="mar" style="color: brown;">{{package.name}} | {{package.duration}} </h1>
+  <hr class="mar">
+  <h2 class="mar" style="color: brown;">About Itinerary</h2>
+  <p class="mar"
+    style="font-size: 15px;font-family: Verdana, Geneva, Tahoma, sans-serif;line-height: 1.5em;word-spacing: 0.8em;">
+    {{package.discription}} </p>
+  <h2 class="mar" style="color: brown;">Inclusions</h2>
+  <h3 class="mar" style="color: brown;font-size: 25px;">- Hotel Included</h3>
+  <span class="mar" style="font-size: 20px;font-family: Verdana, Geneva, Tahoma, sans-serif; ">  
+     {{package.hotel.name}}</span>
 
-
-<!-- <div class="hotel"></div>
-</div> -->
-
-<section class="features">
-<div class="container">
-     
-  <div class="row">
-     
-      
-          <div class="col-sm-3">
-                  <div class="feature-box">
-                      <div class="feature-img">
-                          <img style="height: 260px;"
-                              src="https://s1.at.atcdn.net/wp-content/uploads/2012/05/Park-Hyatt-Sydney-Hotel-Review.jpg">
-                      </div>
-                     
-                     
-                  </div>
-              </div>
-
-              <div class="col-sm-3">
-                      <div class="feature-box">
-                          <div class="feature-img">
-                              <img style="height: 260px;"
-                                  src="https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2017/07/27/1127/Park-Hyatt-Sydney-P065-Opera-Suite-Lounge-Area-View.jpg/Park-Hyatt-Sydney-P065-Opera-Suite-Lounge-Area-View.4x3.jpg?imwidth=1280">
-                          </div>
-                         
-                         
-                      </div>
-                  </div>
-
-                  <div class="col-sm-3">
-                          <div class="feature-box">
-                              <div class="feature-img">
-                                  <img style="height: 260px;"
-                                      src="https://singleflyer.com/wp-content/uploads/2016/12/20161227_141540.jpg">
-                              </div>
-                            
-                              
-                          </div>
-                      </div>
-                      <div class="col-sm-3">
-              <div class="feature-box">
-                  <div class="feature-img">
-                      <img style="height: 260px;"
-                          src="https://legacy.travelnoire.com/wp-content/uploads/2015/06/park-hyatt-sydney.jpg">
-                  </div>
-                
-                  
-              </div>
+  <section class="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3" *ngFor="let himg of package.hotel.hotelimg">
+          <div class="feature-box">
+            <div class="feature-img">
+              <img style="height: 260px;" src="assets/images/features/{{himg}}">
+            </div>
           </div>
-      
-
-  </div>
-</div>
-</section>
-
-
-
-<h3 class="mar" style="color: brown;font-size: 25px;">-&nbspFlights Included</h3>
-<p class="mar" style="font-size: 20px;font-family: Verdana, Geneva, Tahoma, sans-serif;">&nbsp &nbsp &nbsp2 Flights Inculded</p>
-<span class="plane"><i class="fa fa-plane" aria-hidden="true"></i></span>&nbsp
-<span>New Delhi (02:45) &nbsp&nbsp<i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp&nbsp Sydney (13:10)</span>
-<br>
-<span class="plane"><i class="fa fa-plane" aria-hidden="true"></i></span>&nbsp
-<span>Sydney (17:40) &nbsp<i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp New Delhi (09:05)</span>
-<form class="mar box" action="">
-    <div class="details">
-            
-            
-            <label for="fadte" style="color: white; font-size: 15px;">From Date:</label>
-            <input type="date" id="fdate">
-            <label for="tdate" style="color: white;  font-size: 15px;">To Date:</label>
-            <input type="date" id="tdate">
-            <label for="nop"  style="color: white;  font-size: 15px;">No Of Adults:</label>
-            <input type="number" id="nop" min="1" max="1000">
-
-            <label for="nop"  style="color: white;  font-size: 15px;">No Of Children:</label>
-            <input type="number" id="nop" min="1" max="1000">
-            <a href="payment.html" class="onlbtn" style="text-decoration: none;">
-                <input class="subbtn" style="margin-left: 80px; width: 150px; height: 35px; text-align: center; " value="Pay" class="btn">
-            </a>
+        </div>
+      </div>
     </div>
-</form>
+  </section>
+
+
+
+  <h3 class="mar" style="color: brown;font-size: 25px;">- Flights Included</h3>
+  <p class="mar" style="font-size: 20px;font-family: Verdana, Geneva, Tahoma, sans-serif;">   {{package.flight.count}}
+    Flights Inculded</p>
+  <div class="flights" *ngFor="let flight of package.flight.timewithplace">
+    <span class="plane"><i class="fa fa-plane" aria-hidden="true"></i></span> 
+    <span> {{flight.from}}   <i class="fa fa-arrow-right" aria-hidden="true"></i>   {{flight.to}}</span>
+    <br>
+  </div>
+  <form class="mar box" action="">
+    <div class="details">
+      <label for="fadte" style="color: white; font-size: 15px;">From Date:</label>
+      <input type="date" id="fdate">
+      <label for="tdate" style="color: white;  font-size: 15px;">To Date:</label>
+      <input type="date" id="tdate">
+      <label for="nop" style="color: white;  font-size: 15px;">No Of Adults:</label>
+      <input type="number" id="nop" min="1" max="1000">
+
+      <label for="nop" style="color: white;  font-size: 15px;">No Of Children:</label>
+      <input type="number" id="nop" min="1" max="1000">
+      <a href="payment.html" class="onlbtn" style="text-decoration: none;">
+        <input class="subbtn" style="margin-left: 80px; width: 150px; height: 35px; text-align: center; " value="Pay"
+          class="btn">
+      </a>
+    </div>
+  </form>
 </div>

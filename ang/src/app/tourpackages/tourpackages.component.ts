@@ -9,7 +9,7 @@ import {ConfigService} from '../config.service';
 export class TourpackagesComponent implements OnInit {
 
   tourpack = {};
-
+  message1 = "";
 
   constructor(private config:ConfigService ) { }
 
@@ -20,5 +20,12 @@ export class TourpackagesComponent implements OnInit {
 
   getfeatures(){
     return this.config.getConfig().tourpackages;
+  }
+
+  setmessage(s1: string)
+  {
+    this.config.sendmassage(s1);
+    // console.log("this is parent message");
+    // console.log(s1); 
   }
 }
