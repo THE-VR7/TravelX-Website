@@ -757,24 +757,26 @@ flight:
                             }
                             },
 
+
                             {
-                              name: "Hallstatt",
-                              duration: "3 Nights 4 Days",
-                              discription: "",
+                              name: "Ooty",
+                              duration: "5 Nights 4 Days",
+                              discription: "Ooty (short for Udhagamandalam) is a resort town in the Western Ghats mountains, in southern India's Tamil Nadu state. Founded as a British Raj summer resort, it retains a working steam railway line. Other reminders of its colonial past include Stone House, a 19th-century residence, and the circa-1829 St. Stephen’s Church. Its 55-acre Government Botanical Garden lies on the slopes of Doddabetta Peak.",
+
                               sliderimg: 
                               [
-                                "sydney/slider/pic1.jpg",
-                                "sydney/slider/pic2.jpg",
-                                "sydney/slider/pic3.jpg",
+                                "ooty/slider/pic1.jpg",
+                                "ooty/slider/pic2.jpg",
+                                "ooty/slider/pic3.jpg",
                               ],
                               hotel:{
-                                name: "Honors Residence",
+                                name: "Honors Ooty Residence",
                                 hotelimg:
                                 [
-                                  "sydney/hotel/pic1.jpg",
-                                  "sydney/hotel/pic2.jpg",
-                                  "sydney/hotel/pic3.jpg",
-                                  "sydney/hotel/pic4.jpg",
+                                  "ooty/hotel/pic1.jpg",
+                                  "ooty/hotel/pic2.jpg",
+                                  "ooty/hotel/pic3.jpg",
+                                  "ooty/hotel/pic4.jpg",
                                 ]
                               },
                               flight:
@@ -782,15 +784,126 @@ flight:
                                 count: "2",
                                 timewithplace:
                                 [
-                                  { from: " New Delhi (21:55)"  , to: "Maldives (06:10)"  },
-                                  { from: " Maldives (16:10))"  , to: "New Delhi (20:10)"  }
+                                  { from: " New Delhi (21:55)"  , to: "Ooty (06:10)"  },
+                                  { from: " Ooty (16:10))"  , to: "New Delhi (20:10)"  }
                                 ]
                               }
                               },
 
+                              {
+                                name: "Munnar",
+                                duration: "5 Nights 4 Days",
+                                discription: "Munnar is a town in the Western Ghats mountain range in India’s Kerala state. A hill station and former resort for the British Raj elite, it's surrounded by rolling hills dotted with tea plantations established in the late 19th century. Eravikulam National Park, a habitat for the endangered mountain goat Nilgiri tahr, is home to the Lakkam Waterfalls, hiking trails and 2,695m-tall Anamudi Peak.",
 
+                                sliderimg: 
+                                [
+                                  "munnar/slider/pic1.jpg",
+                                  "munnar/slider/pic2.jpg",
+                                  "munnar/slider/pic3.jpg",
+                                ],
+                                hotel:{
+                                  name: "Tea County",
+                                  hotelimg:
+                                  [
+                                    "munnar/hotel/pic1.jpg",
+                                    "munnar/hotel/pic2.jpg",
+                                    "munnar/hotel/pic3.jpg",
+                                    "munnar/hotel/pic4.jpg",
+                                  ]
+                                },
+                                flight:
+                                {
+                                  count: "2",
+                                  timewithplace:
+                                  [
+                                    { from: " New Delhi (21:55)"  , to: "Munnar (06:10)"  },
+                                    { from: " Munnar (16:10))"  , to: "New Delhi (20:10)"  }
+                                  ]
+                                }
+                                },
+                                {
+                                  name: "Srinagar",
+                                  duration: "5 Nights 4 Days",
+                                  discription: "Srinagar is the largest city and the summer capital of the Indian union territory of Jammu and Kashmir. It lies in the Kashmir Valley on the banks of the Jhelum River, a tributary of the Indus, and Dal and Anchar lakes. The city is known for its natural environment, gardens, waterfronts and houseboats.",
+
+                                  sliderimg: 
+                                  [
+                                    "srinagar/slider/pic1.jpg",
+                                    "srinagar/slider/pic2.jpg",
+                                    "srinagar/slider/pic3.jpg",
+                                  ],
+                                  hotel:{
+                                    name: "Walisons Hotel",
+                                    hotelimg:
+                                    [
+                                      "srinagar/hotel/pic1.jpg",
+                                      "srinagar/hotel/pic2.jpg",
+                                      "srinagar/hotel/pic3.jpg",
+                                      "srinagar/hotel/pic4.jpg",
+                                    ]
+                                  },
+                                  flight:
+                                  {
+                                    count: "2",
+                                    timewithplace:
+                                    [
+                                      { from: " New Delhi (21:55)"  , to: "Srinagar (06:10)"  },
+                                      { from: " Srinagar (16:10))"  , to: "New Delhi (20:10)"  }
+                                    ]
+                                  }
+                                  },
+                                  {
+                                    name: "Dalhousie",
+                                    duration: "7 Nights 4 Days",
+                                    discription: "Dalhousie is a high-altitude town spread across 5 hills near the Dhauladhar mountain range in the north Indian state of Himachal Pradesh. It's home to colonial-era buildings, including St. Francis and St. John’s churches, which date back to the rule of the British Raj in the 1800s. A trek up Dainkund Peak leads to Pholani Devi Temple. To the north, Subhash Baoli is a peaceful area with pine trees and panoramic views.",
+                                    sliderimg: 
+                                    [
+                                      "srinagar/slider/pic1.jpg",
+                                      "srinagar/slider/pic2.jpg",
+                                      "srinagar/slider/pic3.jpg",
+                                    ],
+                                    hotel:{
+                                      name: "Hotel Sunrise View",
+                                      hotelimg:
+                                      [
+                                        "munnar/hotel/pic1.jpg",
+                                        "munnar/hotel/pic2.jpg",
+                                        "munnar/hotel/pic3.jpg",
+                                        "munnar/hotel/pic4.jpg",
+                                      ]
+                                    },
+                                    flight:
+                                    {
+                                      count: "2",
+                                      timewithplace:
+                                      [
+                                        { from: " New Delhi (21:55)"  , to: "Dalhousie (06:10)"  },
+                                        { from: " Dalhousie (16:10))"  , to: "New Delhi (20:10)"  }
+                                      ]
+                                    }
+                                    }
                   ]
 
+},
+
+
+blog : {
+  tagline: "Share your Travel Experience",
+  title: "TraveleX Blog",
+  posts: [
+    {id:1,title:'First one',author:'VR7',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:2,title:'Second one',author:'VR17',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:3,title:'First third one',author:'VR27',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:4,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:5,title:'last one',author:'VR47',date:'2018-03-19T07:22Z',
+    excert:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo aliquam eos eligendi delectus quam, labore expedita quas asperiores, quibusdam eius, saepe culpa? Id eius animi enim nisi sapiente officiis voluptas?',image:'pic1.jpg'},
+    {id:6,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:7,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:8,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:9,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    {id:10,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+    
+  ]
 }
 
 

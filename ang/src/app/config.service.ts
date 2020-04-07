@@ -22,5 +22,9 @@ export class ConfigService {
     this.teachmsg.next(message);
   }
 
+  getpostbyid( id : number){
+    return this.config.blog.posts[id-1];
+  }
+
 }
 

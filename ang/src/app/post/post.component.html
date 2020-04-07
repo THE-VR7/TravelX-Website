@@ -1,0 +1,12 @@
+<div class="post-block-content">
+    <h3>{{post.title | uppercase  }}</h3>
+    <p class="post-sub">By {{post.author}} | {{post.date | date:'dd-MMM-yyyy'}}</p>
+    <div class="post-featured-image align-content-center">
+        <img src="assets/images/blog/{{post.image}}" style="width: 100%; height: 99%;">
+    </div>
+    <ul>
+        <div markdown id="preview">{{post.excert}} </div>
+    </ul>
+    <a routerLink="/article/{{post.id}}" class="">Read More..</a>
+    <!-- <a routerLink="article-edit/{{post.id}}" class="button"><i class="fa fa-edit"></i></a> -->
+</div>

@@ -6,6 +6,13 @@ import { SignupComponent } from './signup/signup.component';
 import { TourpackagesComponent } from './tourpackages/tourpackages.component';
 import { PackageComponent } from './tourpackages/package/package.component';
 import { LinksComponent } from './aboutus/links/links.component';
+import { BlogComponent } from './blog/blog.component';
+import { PostComponent } from './post/post.component';
+import { ArticleComponent } from './article/article.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import {RouteguardService } from './routeguard.service';
+import { ContactusComponent } from './contactus/contactus.component';
+
 
 
 const routes: Routes = [
@@ -15,7 +22,14 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'tourpackage', component: TourpackagesComponent},
   { path: 'package', component: PackageComponent},
-  { path: 'FAQ',component: LinksComponent}
+  { path: 'FAQ',component: LinksComponent},
+  { path: 'blog' , component: BlogComponent, canActivate: [RouteguardService] },
+  { path: 'article/:id' , component: ArticleComponent },
+  { path: '404' , component: NotfoundComponent },
+  { path: 'contactus' , component: ContactusComponent },
+  { path: '**' , redirectTo: '/404'},
+  
+  // { path: '' , component:  },
 ];
 
 @NgModule({
