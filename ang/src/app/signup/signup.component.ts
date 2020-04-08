@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   }
 
 
-  signup(formData : NgForm)
+  signup(formData : NgForm):void
   {
     this.auth.signup(formData).subscribe
     ((user) => console.log(user))

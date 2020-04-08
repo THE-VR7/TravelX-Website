@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   login(formData : NgForm)
   {
-    this.auth.login(formData).subscribe
+    this.auth.signup(formData).subscribe
     ((user) => console.log(user))
   }
 
