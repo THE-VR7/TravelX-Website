@@ -13,7 +13,7 @@ export class AuthenticationService {
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-  
+      console.log('here');
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
   
@@ -29,7 +29,7 @@ export class AuthenticationService {
 
   signup(formdata : NgForm)
   {
-    return this.http.post<any>(  '${this.apiUrl}/signup' ,formdata).pipe(
+    return this.http.post<any>('${this.apiUrl}/signup',formdata).pipe(
       tap(user => {
         console.log(user);
       }),
@@ -39,7 +39,8 @@ export class AuthenticationService {
 
   login(formdata : NgForm)
   {
-    return this.http.post<any>('${this.apiUrl}/login' ,formdata).pipe(
+    console.log(formdata);
+    return this.http.post<any>('${this.apiUrl}/login',formdata).pipe(
       tap(user => {
         console.log(user);
       }),
