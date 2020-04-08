@@ -7,7 +7,8 @@ import {ConfigService} from '../config.service';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
-  banner =  {};
+  banner =  {
+  };
 
 
 

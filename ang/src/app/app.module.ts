@@ -27,7 +27,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -65,7 +65,7 @@ import { AuthenticationService } from './authentication.service';
   InMemoryDataService, { dataEncapsulation: false }
 ),
 
-// FontAwesomeModule
+FontAwesomeModule
   ],
   providers: [ConfigService,PagerService],
   bootstrap: [AppComponent]
