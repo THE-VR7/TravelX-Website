@@ -27,6 +27,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -62,7 +63,9 @@ import { AuthenticationService } from './authentication.service';
 // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
   InMemoryDataService, { dataEncapsulation: false }
-)
+),
+
+FontAwesomeModule
   ],
   providers: [ConfigService,PagerService],
   bootstrap: [AppComponent]
