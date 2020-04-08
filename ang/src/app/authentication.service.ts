@@ -29,7 +29,7 @@ export class AuthenticationService {
 
   signup(formdata : NgForm)
   {
-    return this.http.post<any>(  '${this.apiUrl}/signup' ,formdata).pipe(
+    return this.http.post<any>(this.apiUrl,formdata).pipe(
       tap(user => {
         console.log(user);
       }),
@@ -39,7 +39,7 @@ export class AuthenticationService {
 
   login(formdata : NgForm)
   {
-    return this.http.post<any>('${this.apiUrl}/login' ,formdata).pipe(
+    return this.http.post<any>(this.apiUrl,formdata).pipe(
       tap(user => {
         console.log(user);
       }),
