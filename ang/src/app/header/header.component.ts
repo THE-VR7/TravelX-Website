@@ -1,4 +1,5 @@
 import { Component, OnInit ,Input} from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +9,20 @@ import { Component, OnInit ,Input} from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   // activetab = 'home';
+  isloggedin:boolean;
   
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
+    this.isloggedin = this.auth.isloggedin;
   }
-
   // getactivetab(tabname:string){
   //   this.activetab = tabname;
   // }
+
+  logout()
+  {
+    this.auth.logout( );
+  }
 }

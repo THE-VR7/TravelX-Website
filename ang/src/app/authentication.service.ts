@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap,catchError,map} from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,9 @@ import { tap,catchError,map} from 'rxjs/operators';
 export class AuthenticationService {
 
   apiUrl = 'api/users';
+   isloggedin:boolean;
 
-  private handleError<T> (operation = 'operation', result?: T) {
+   handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log('here');
       // TODO: send the error to remote logging infrastructure
@@ -25,13 +27,13 @@ export class AuthenticationService {
     };
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   signup(formdata : NgForm)
   {
-    return this.http.post<any>('${this.apiUrl}/signup',formdata).pipe(
+    return this.http.post<any>( `${this.apiUrl}/signup`,formdata).pipe(
       tap(user => {
-        console.log(user);
+        // console.log(user);
       }),
       catchError(this.handleError('getHeroes', []))
     );
@@ -39,13 +41,24 @@ export class AuthenticationService {
 
   login(formdata : NgForm)
   {
-    console.log(formdata);
-    return this.http.post<any>('${this.apiUrl}/login',formdata).pipe(
+    // console.log(formdata);
+    return this.http.post<any>(`${this.apiUrl}/login`,formdata).pipe(
       tap(user => {
-        console.log(user);
+        // console.log(user);
+        if(user && user.token)
+        {
+        localStorage.setItem('currentuser',JSON.stringify(user));
+        this.isloggedin = true;
+      }
       }),
       catchError(this.handleError('getHeroes', []))
     );
   }
 
+  logout()
+  {
+    localStorage.removeItem('currentuser');
+    this.isloggedin = false;
+    this.router.navigate(['/login']);
+  }
 }

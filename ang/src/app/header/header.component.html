@@ -37,6 +37,12 @@
                         <a class="nav-link profile" [routerLink]="['/signup']" routerLinkActive="active" ><i class="fa fa-sign-in"  aria-hidden="true"></i>
                             Signup </a>
                     </li>
+                    <!-- *ngIf="isloggedin === true" -->
+                    <li class="nav-item" >
+                        <a class="nav-link profile" (click)="logout()"  ><i class="fa fa-sign-in"  aria-hidden="true"></i>
+                            LogOut </a>
+                    </li>
+                    
                 </ul>
             </div>
         </div>

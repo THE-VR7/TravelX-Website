@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,11 @@ import { AuthenticationService } from '../authentication.service';
 export class LoginComponent implements OnInit {
 
   loginform : FormGroup;
+  returnurl:String ;
 
-  constructor( private fb : FormBuilder, private auth: AuthenticationService ) { }
+  constructor( private fb : FormBuilder, private auth: AuthenticationService ,
+    private router : Router
+    , private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loginform = this.fb.group({
@@ -19,6 +23,7 @@ export class LoginComponent implements OnInit {
       'password': [null,Validators.required]
     });
 
+    this.returnurl = this.route.queryParams['returnurl'] || '/';
   }
 
 
@@ -26,7 +31,10 @@ export class LoginComponent implements OnInit {
   {
     // console.log(formData);
     this.auth.login(formData).subscribe
-    ((user) => console.log(user))
+    ((user) => {
+      console.log(user)
+      this.router.navigate([this.returnurl]);
+    })
   }
 
 }

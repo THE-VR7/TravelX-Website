@@ -5,6 +5,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
   providedIn: 'root'
 })
 export class RouteguardService implements CanActivate {
+  
 
   constructor(private router : Router) {   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

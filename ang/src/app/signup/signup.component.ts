@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
 
   signupform : FormGroup;
 
-  constructor( private fb : FormBuilder, private auth: AuthenticationService ) { }
+  constructor( private fb : FormBuilder, private auth: AuthenticationService, private router:Router ) { }
 
   ngOnInit() {
     this.signupform = this.fb.group({
@@ -26,6 +27,9 @@ export class SignupComponent implements OnInit {
   signup(formData : NgForm):void
   {
     this.auth.signup(formData).subscribe
-    ((user) => console.log(user))
+    ((user) => {
+      console.log(`added user ${JSON.stringify(user)}`);
+      this.router.navigate(['login']);
+    });
   }
 }
