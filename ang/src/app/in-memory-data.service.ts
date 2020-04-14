@@ -9,8 +9,33 @@ export class InMemoryDataService implements InMemoryDbService {
       const users = [
         { id: 1, name: 'Vineet', username: 'imVR7',email:'vineetrathor57@gmail.com',password :'welcome'},
         { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor009@gmail.com',password:'welcome'},
+      ];   
+
+      const menu = [
+        {id: 1,title:'home',link: '/home'},
+        {id: 2,title:'tourpackage',link: '/tourpackage'},
+        {id: 3,title:'blog',link: '/blog'},
+        // {id: 4,title:'home',link: '/home'},
+        // {id: 5,title:'home',link: '/home'},
+        // {id: 6,title:'home',link: '/home'},
+        
       ];
-      return {users};
+
+      const posts = [
+        {id:1,title:'First one is always the king of the worlds',author:'VR7',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddwwwwwwwwwwwwwwwwwwwcccccccccccqqqqqqqqqqqqqqqqeeeeeeeeeezzzzzzzzzzzzzzzzzzzzzzzzz eaaaaaaaaaaaaaaaaaaaaaaaa',image:'pic1.jpg'},
+        {id:2,title:'Second one',author:'VR17',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+        {id:3,title:'First third one',author:'VR27',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+        {id:4,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+        {id:5,title:'last one',author:'VR47',date:'2018-03-19T07:22Z',
+        excert:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo aliquam eos eligendi delectus quam, labore expedita quas asperiores, quibusdam eius, saepe culpa? Id eius animi enim nisi sapiente officiis voluptas?',image:'pic1.jpg'},
+        {id:6,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+        {id:7,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+        {id:8,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+        {id:9,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
+        {id:10,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'}, 
+      ]
+
+      return {users,posts,menu};
     }
 
 
@@ -19,6 +44,45 @@ export class InMemoryDataService implements InMemoryDbService {
     {
       return "This is a token";
     }
+
+    get(reqInfo : RequestInfo)
+    {
+      if(reqInfo.collectionName === 'posts')
+      {
+        return this.getarticles(reqInfo);
+      }
+      return undefined;
+    }
+
+    getarticles(reqInfo:RequestInfo)
+    {
+        return reqInfo.utils.createResponse$(() => {
+          const dataEncap = reqInfo.utils.getConfig().dataEncapsulation;
+          const id = reqInfo.id;
+          const collection = reqInfo.collection;
+          const data = id === undefined ? collection : reqInfo.utils.findById(collection,id);
+
+
+          // console.log(resonseBody);
+
+          const options : ResponseOptions = data ?
+          {
+            body: dataEncap ? {data}:data,
+            status: 200
+          }:
+          {
+            body: { error: "Post not found"},
+            status: 404
+          };
+          options.statusText = options.status === 200 ? 'ok' : 'not found';
+          options.headers = reqInfo.headers;
+          options.url = reqInfo.url;
+          return options;
+        });
+    
+    }
+
+
 
     post(reqInfo : RequestInfo)
     {

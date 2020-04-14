@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
 
   apiUrl = 'api/users';
-   isloggedin:boolean;
+  //  isloggedin:boolean;
 
    handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -48,7 +48,7 @@ export class AuthenticationService {
         if(user && user.token)
         {
         localStorage.setItem('currentuser',JSON.stringify(user));
-        this.isloggedin = true;
+        // this.isloggedin = true;
       }
       }),
       catchError(this.handleError('getHeroes', []))
@@ -58,7 +58,25 @@ export class AuthenticationService {
   logout()
   {
     localStorage.removeItem('currentuser');
-    this.isloggedin = false;
+    // this.isloggedin = false;
     this.router.navigate(['/login']);
+  }
+
+
+  isloggedin()
+  {
+    if(localStorage.getItem('currentuser'))
+    {
+      return true;
+    }
+    else
+      return false;
+  }
+
+  getuser()
+  {
+    if(this.isloggedin){
+      return JSON.parse(localStorage.getItem('currentuser'));
+    }
   }
 }

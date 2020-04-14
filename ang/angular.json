@@ -89,9 +89,21 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap4.3.1.min.css",
+              "src/assets/css/font-awesome.min.css",
+              "../node_modules/animate.css/animate.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/marked/lib/marked.js",
+              "../node_modules/wowjs/dist/wow.js",
+              "src/assets/js/bootstrap3.4.0.min.js",
+              "src/assets/js/bootstrap4.3.1.min.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/jquery-3.3.1.slim.min.js",
+              "src/assets/js/popper.min.js"
+            ]
           }
         },
         "lint": {

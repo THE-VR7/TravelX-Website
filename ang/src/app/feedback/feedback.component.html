@@ -1,8 +1,8 @@
 <section class="users-feedback">
     <h1 style="text-align: center;font-family: sans-serif;font-weight: 700;">{{feedback.title}}</h1>
     <div class="container">
-        <div class="row animatedParent animateOnce">
-            <div class="col-md-4 slower animated fadeInLeft box" *ngFor="let review of feedback.reviews" >
+        <div class="row ">
+            <div class="col-md-4" *ngFor="let review of feedback.reviews" >
                 <div class="users-review">
                     <p>{{review.description}}
                     </p>

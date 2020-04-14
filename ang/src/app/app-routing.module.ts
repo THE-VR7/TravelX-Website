@@ -12,6 +12,8 @@ import { ArticleComponent } from './article/article.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {RouteguardService } from './routeguard.service';
 import { ContactusComponent } from './contactus/contactus.component';
+import { ArticleEditComponent } from './article/article-edit/article-edit.component';
+import { ArticleCreateComponent } from './article/article-create/article-create.component';
 
 
 
@@ -23,11 +25,14 @@ const routes: Routes = [
   { path: 'tourpackage', component: TourpackagesComponent},
   { path: 'package', component: PackageComponent},
   { path: 'FAQ',component: LinksComponent},
-  { path: 'blog' , component: BlogComponent, canActivate: [RouteguardService] },
+  { path: 'blog' , component: BlogComponent },
   { path: 'article/:id' , component: ArticleComponent },
+  { path: 'article-edit/:id' , component: ArticleEditComponent , canActivate: [RouteguardService] },
+  { path: 'article-create' , component: ArticleCreateComponent , canActivate: [RouteguardService]},
   { path: '404' , component: NotfoundComponent },
   { path: 'contactus' , component: ContactusComponent },
   { path: '**' , redirectTo: '/404'},
+  
   
   // { path: '' , component:  },
 ];

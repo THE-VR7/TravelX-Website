@@ -890,20 +890,6 @@ flight:
 blog : {
   tagline: "Share your Travel Experience",
   title: "TraveleX Blog",
-  posts: [
-    {id:1,title:'First one',author:'VR7',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:2,title:'Second one',author:'VR17',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:3,title:'First third one',author:'VR27',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:4,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:5,title:'last one',author:'VR47',date:'2018-03-19T07:22Z',
-    excert:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo aliquam eos eligendi delectus quam, labore expedita quas asperiores, quibusdam eius, saepe culpa? Id eius animi enim nisi sapiente officiis voluptas?',image:'pic1.jpg'},
-    {id:6,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:7,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:8,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:9,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    {id:10,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'},
-    
-  ]
 }
 
 

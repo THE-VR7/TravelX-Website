@@ -1,5 +1,5 @@
 
-.post-block-content:hover {
+.post-block-content:hover, .row a:hover {
     border-color:#d2b356;    
 }
 .primary-color, .featured .post {
@@ -54,10 +54,21 @@
 }
 
 #preview {
-  width: 80% ; 
-  overflow: hidden;
+  width: 80%;
+  height: 25px; 
+  overflow-x: hidden;
+  overflow-y: hidden;
+  
   white-space: nowrap; 
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
+  line-clamp: 1;
+  
   /* border: 1px solid black; */
-  margin-left: 10%;
+  /* margin-left: 10%; */
+}
+#prev1 {
+  height: 40px;
+  /* border: 1px solid black; */
+  font-size: large ;
+   white-space: nowrapw; 
 }

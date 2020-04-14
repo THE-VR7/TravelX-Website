@@ -1,8 +1,6 @@
 <div class="login">
 <div class="container" id="container">
-    <div class="form-container sign-up-container">
-    </div>
-    <div class="form-container sign-in-container">
+    <div class="form-container sign-in-container wow slideInDown" data-wow-duration="1s" data-wow-delay="0.5s">
         <form [formGroup]="loginform" (ngSubmit)="login(loginform.value)" >
             <h1>Log In</h1>
             <div class="social-container">
@@ -16,7 +14,7 @@
         <button type="submit">Log In</button>
         </form>
     </div>
-    <div class="overlay-container">
+    <div class="overlay-container wow slideInUp" data-wow-duration="1s" data-wow-delay="0.5s">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>

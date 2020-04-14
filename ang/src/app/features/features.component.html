@@ -1,9 +1,9 @@
-<section class="features animatedParent animateOnce">
-    <h1 class="slower animated rotateIn box" style="text-align: center; padding-bottom: 30px; font-family: sans-serif;font-weight: 700;">
+<section class="features">
+    <h1 class="" style="text-align: center; padding-bottom: 30px; font-family: sans-serif;font-weight: 700;">
         {{features.title}}</h1>
     <div class="container ">
-        <div class="row animatedParent animateOnce">
-            <div class="col-md-4 slow animated fadeInDown box" *ngFor="let feat of features.destinations" >
+        <div class="row">
+            <div class="col-md-4" *ngFor="let feat of features.destinations" >
                 <div class="feature-box">
                     <div class="feature-img">
                         <img src="assets/images/features/destinations/{{feat.image}}" >
@@ -20,7 +20,7 @@
 
                         </span> -->
                         <div class="placename">
-                            <h3>{{feat.name}}</h3>
+                            <h3>{{feat.place}}</h3>
                         </div>
                         <div class="summary">
                             <p>

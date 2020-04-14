@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgwWowService } from 'ngx-wow';
+
 
 @Component({
   selector: 'app-banner',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private wowservice : NgwWowService) { }
 
   ngOnInit() {
+    // this.wowservice.init();
   }
 
 }
