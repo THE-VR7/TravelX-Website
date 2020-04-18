@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.returnurl = this.route.queryParams['returnurl'] || '/';
-    this.wowService.init();
+    // this.wowService.init();
   }
 
 

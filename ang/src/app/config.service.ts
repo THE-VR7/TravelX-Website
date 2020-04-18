@@ -3,6 +3,7 @@ import { HammerGestureConfig } from '@angular/platform-browser';
 import { configuration } from './configuration';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Post } from './post';
+import { user } from './user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, catchError, map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
@@ -78,6 +79,17 @@ export class ConfigService {
       catchError(this.handleError('get posts by id', []))
     );
   }
+
+  getuserbyid(id: number) {
+    let url = 'api/user';
+    return this.http.get<any>(`${url}/${id}`).pipe(
+      tap(
+        // user => console.log(user)
+      ),
+      catchError(this.handleError('get user by id', []))
+    );
+  }
+
 
   updateposts(formdata: NgForm): Observable<Post[]> {
     return this.http.put<any>(`${this.apiurl}`, formdata, httpOptions).pipe(

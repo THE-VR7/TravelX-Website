@@ -1,19 +1,30 @@
 import { Component, OnInit , Input, OnDestroy} from '@angular/core';
 import {ConfigService} from '../../config.service';
 import { Subscription } from 'rxjs';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-package',
   templateUrl: './package.component.html',
-  styleUrls: ['./package.component.css']
+  styleUrls: ['./package.component.css'],
+  providers: [ NgbCarouselConfig ]
 })
-export class PackageComponent implements OnInit,OnDestroy {
+export class PackageComponent implements OnInit {
   package = {};
   key = "nothing";
   chilmsg = "";
+
+  
   private param: Subscription;
-  constructor(private config:ConfigService) { }
+  constructor(private config:ConfigService, private boot : NgbCarouselConfig ) { 
+
+    boot.interval = 4000;
+    boot.wrap = true;
+    boot.keyboard = false;
+    boot.pauseOnHover = false;
+
+  }
 
   ngOnInit() {
    this.param =  this.config.message
@@ -23,11 +34,6 @@ export class PackageComponent implements OnInit,OnDestroy {
 
 
 
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    // this.param.unsubscribe();
-  }
   getchilmsg(chilmsg : string)
   {
 if(chilmsg !== "Default message"){
@@ -50,4 +56,10 @@ if(chilmsg !== "Default message"){
     }
   }
 }
+
 }
+
+
+
+
+

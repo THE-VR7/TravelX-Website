@@ -32,6 +32,8 @@ import { ArticleEditComponent } from './article/article-edit/article-edit.compon
 import { ArticleCreateComponent } from './article/article-create/article-create.component';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { NavmenuComponent } from './navmenu/navmenu.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserdashboardModule } from './userdashboard/userdashboard.module';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
   imports: [
     BrowserModule,
     NgwWowModule,
+    NgbModule,
+    UserdashboardModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

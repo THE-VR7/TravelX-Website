@@ -1,33 +1,21 @@
 <div class="pack1">
   <div class="container-fluid">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="border-radius:20px;">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-
-        <div class="item" *ngFor="let image of package.sliderimg">
-          <img style="height: 450px; width: 100%;" src="assets/images/features/{{image}}">
+      <ngb-carousel *ngIf="package.sliderimg" >
+        <ng-template ngbSlide *ngFor="let image of package.sliderimg" >
+        <div class=" " >
+          <img style="height: 550px; width: 100%;" src="assets/images/features/{{image}}">
         </div>
-
-      </div>
-
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+        </ng-template>
+      </ngb-carousel> 
   </div>
+
+
+
+
+
+
+
+
 
   <h1 class="mar" style="color: brown;">{{package.name}} | {{package.duration}} </h1>
   <hr class="mar">

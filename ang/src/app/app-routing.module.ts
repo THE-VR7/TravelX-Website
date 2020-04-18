@@ -14,6 +14,8 @@ import {RouteguardService } from './routeguard.service';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ArticleEditComponent } from './article/article-edit/article-edit.component';
 import { ArticleCreateComponent } from './article/article-create/article-create.component';
+import { UserdashboardModule } from './userdashboard/userdashboard.module';
+
 
 
 
@@ -22,6 +24,7 @@ const routes: Routes = [
   { path: 'home', component: SliderComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
+  { path: 'dashboard', loadChildren: () => UserdashboardModule , canActivate: [RouteguardService]},
   { path: 'tourpackage', component: TourpackagesComponent},
   { path: 'package', component: PackageComponent},
   { path: 'FAQ',component: LinksComponent},

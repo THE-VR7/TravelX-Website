@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
-  apiUrl = 'api/users';
+  apiUrl = 'api/user';
   //  isloggedin:boolean;
 
    handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.log('here');
+      console.log('Reahere');
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
   
@@ -59,7 +59,7 @@ export class AuthenticationService {
   {
     localStorage.removeItem('currentuser');
     // this.isloggedin = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
 

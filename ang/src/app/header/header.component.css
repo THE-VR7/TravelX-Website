@@ -6,7 +6,9 @@
     text-transform: uppercase;
     font-weight: bold;
 }
-
+.navbar-collapse {
+    margin-left: 13%;
+}
 .navbar-dark .navbar-brand {
     font-size: 25px;
     text-transform: uppercase;
@@ -45,7 +47,7 @@
     transition: 1s;
 }
 
-/* .navbar-dark .navbar-nav .nav-link:hover {
+/* .navbar-dark .navbar-navś .nav-link:hover {
     
 } */
 
@@ -56,11 +58,22 @@
 
     .navbar-toggler {
         padding: 1px 5px;
-        font-size: 18px;
+        font-size: 13px;
         line-height: 0.3;
         background: transparent;
         border: none;
         outline: none;
+    }
+        .navbar-toggler,
+    .navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        outline: none ;
+        outline-style: none;
+
     }
     
 }

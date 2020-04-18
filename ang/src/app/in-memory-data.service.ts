@@ -6,18 +6,18 @@ import { InMemoryDbService , RequestInfo, ResponseOptions} from 'angular-in-memo
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-      const users = [
-        { id: 1, name: 'Vineet', username: 'imVR7',email:'vineetrathor57@gmail.com',password :'welcome'},
-        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor009@gmail.com',password:'welcome'},
+      const user = [
+        { id: 1, name: 'Vineet', username: 'imVR7',email:'vineetrathor57@gmail.com',password :'welcome','bio': 'This is the VR7','image':'1.jpg'},
+        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor009@gmail.com',password:'welcome','bio': 'This is the 2nd VR7','image':'2.jpg'},
       ];   
 
       const menu = [
         {id: 1,title:'home',link: '/home'},
-        {id: 2,title:'tourpackage',link: '/tourpackage'},
+        {id: 2,title:'tour packages',link: '/tourpackage'},
         {id: 3,title:'blog',link: '/blog'},
-        // {id: 4,title:'home',link: '/home'},
-        // {id: 5,title:'home',link: '/home'},
-        // {id: 6,title:'home',link: '/home'},
+        {id: 4,title:'login',link: '/login'},
+        {id: 5,title:'signup',link: '/signup'},
+        // {id: 6,title:'profile',link: '/:name/profile'},
         
       ];
 
@@ -35,7 +35,7 @@ export class InMemoryDataService implements InMemoryDbService {
         {id:10,title:'First Second one',author:'VR37',date:'2018-03-19T07:22Z',excert:'Traveled to the end of the World',image:'pic1.jpg'}, 
       ]
 
-      return {users,posts,menu};
+      return {user,posts,menu};
     }
 
 
