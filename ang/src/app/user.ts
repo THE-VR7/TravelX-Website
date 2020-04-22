@@ -7,8 +7,9 @@ export class user {
    public username: string,
    public password: string,
    public email: string,
-   public image: string = "",
-   public bio: string = "",
+   public phone: number = null,
+   public image: string = null,
+   public bio: string = null,
    public token: string,
 ){}
 

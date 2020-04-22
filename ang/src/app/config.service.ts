@@ -100,6 +100,17 @@ export class ConfigService {
     );
   }
 
+  updateuser(formdata: NgForm): Observable<user[]> {
+    console.log(formdata);
+    let url = 'api/user';
+    return this.http.put<any>(`${url}`, formdata, httpOptions).pipe(
+      tap(
+      ),
+      catchError(this.handleError('Update user failed', []))
+    );
+  }
+
+
   addposts(formdata: NgForm): Observable<any> {
     return this.http.post<any>(`${this.apiurl}`, formdata).pipe(
       tap(

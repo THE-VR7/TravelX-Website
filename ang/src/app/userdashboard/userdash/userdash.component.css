@@ -7,7 +7,7 @@
 
 }
 .logout {
-    margin-top: 87%;    
+    margin-top: 12%; 
 }
 .emp-profile{
     padding: 3%;
@@ -20,10 +20,15 @@
 }
 .profile-img{
     text-align: center;
+    height: 250px  ;
+
 }
 .profile-img img{
     width: 70%;
     height: 100%;
+    border-radius: 20% ;
+    border: 1px solid rgba(128, 128, 128, 0.466);
+    box-shadow: 2px 2px 2px 2px rgba(199, 199, 65, 0.404);
 }
 .profile-img .file {
     position: relative;

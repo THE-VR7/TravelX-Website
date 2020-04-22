@@ -66,10 +66,10 @@ getuser()
       // console.log("Insider If loop Function is running")
     this.config.getuserbyid(localuser.id).subscribe(
       user =>{
-        // this.user = user
-        // console.log(user.image);
-        this.profileimage = user.image;
-
+        if(user.image)
+          {this.profileimage = user.image;}
+        else  
+        { this.profileimage = 'favicon.ico'; }
       }
     );       
   }

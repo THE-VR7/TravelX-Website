@@ -7,8 +7,8 @@ import { InMemoryDbService , RequestInfo, ResponseOptions} from 'angular-in-memo
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
       const user = [
-        { id: 1, name: 'Vineet', username: 'imVR7',email:'vineetrathor57@gmail.com',password :'welcome','bio': 'This is the VR7','image':'1.jpg'},
-        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor009@gmail.com',password:'welcome','bio': 'This is the 2nd VR7','image':'2.jpg'},
+        { id: 1, name: 'Vineet', username: 'imVR7',email:'vineetrathor57@gmail.com',password :'welcome','bio': 'This is the VR7','phone':8171015682 ,'image':'1.jpg'},
+        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor009@gmail.com',password:'welcome','bio': null,'phone': null , 'image': null },
       ];   
 
       const menu = [
@@ -18,7 +18,6 @@ export class InMemoryDataService implements InMemoryDbService {
         {id: 4,title:'login',link: '/login'},
         {id: 5,title:'signup',link: '/signup'},
         // {id: 6,title:'profile',link: '/:name/profile'},
-        
       ];
 
       const posts = [

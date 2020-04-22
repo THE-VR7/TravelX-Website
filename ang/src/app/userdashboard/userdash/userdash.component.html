@@ -1,126 +1,250 @@
-<section class="user" >
-<div class="container emp-profile" *ngIf="user"  >
-    <form  >
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-img">
-                    <img src="assets/images/user/{{user.image}}" >
-                    <div class="file btn btn-lg btn-primary">
-                        Change Photo
-                        <!-- <input type="file" name="file"/> -->
+<section class="user">
+    <div class="container emp-profile" *ngIf="user">
+        <form>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img *ngIf="user.image; else addimage;" src="assets/images/user/{{user.image}}">
+                        <ng-template #addimage>
+                            <img src="assets/images/user/favicon.ico">
+                        </ng-template>
+                        <!-- <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file"/>
+                        </div> -->
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="profile-head">
-                            <h5>
-                                {{user.name}}
-                            </h5>
-                            <!-- <h6>
+                <div class="col-md-7">
+                    <div class="profile-head">
+                        <h5>
+                            {{user.name}}
+                        </h5>
+                        <!-- <h6>
                                 Web Developer and Designer
                             </h6> -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tours Detail</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <!-- <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br/>
-                    <a href="">Bootsnipp Profile</a><br/>
-                    <a href="">Bootply Profile</a>
-                    <p>SKILLS</p>
-                    <a href="">Web Designer</a><br/>
-                    <a href="">Web Developer</a><br/>
-                    <a href="">WordPress</a><br/>
-                    <a href="">WooCommerce</a><br/>
-                    <a href="">PHP, .Net</a><br/>
-                </div> -->
-                <div class="logout">
-                    <button class=" btn btn-primary btn- btn-lg " (click)="logout()">Logout</button>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>User Name</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.username}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Name</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.name}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.email}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Phone</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>123 456 7890</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Bio</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.bio}}</p>
-                                    </div>
-                                </div>
+                        <br>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                    aria-controls="profile" aria-selected="false">Tours Detail</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Total Tours Done</label>
+                    <br>
+                    <div class="row" >
+                        <!-- <div class="">
+                            <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <a href="">Website Link</a><br/>
+                            <a href="">Bootsnipp Profile</a><br/>
+                            <a href="">Bootply Profile</a>
+                            <p>SKILLS</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+                            <a href="">WordPress</a><br/>
+                            <a href="">WooCommerce</a><br/>
+                            <a href="">PHP, .Net</a><br/>
+                        </div>
+
+                        </div> -->
+                        <div class="col-md-12" >
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label>User Name</label>
+                                        </div>
+                                        <div class="col-md-4" *ngIf="ct[0]; else elseblock0">
+                                            <p>{{user.username}}</p>
+                                        </div>
+                                        <div class="col-md-2 offset-1">
+                                            <button class="profile-edit-btn" (click)="edit(0)"
+                                                *ngIf="ct[0];">Edit</button>
+                                        </div>
+
+                                        <ng-template #elseblock0>
+                                            <div class="col-md-4">
+                                                <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,0)">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control input" name="username"
+                                                            placeholder="username" formControlName="username">
+                                                    </div>
+                                                    <div class="btn-group btn-group-justified ">
+                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                        <button type="button" class="profile-edit-btn"
+                                                            (click)="show(0)">Cancel</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </ng-template>
                                     </div>
-                                    <div class="col-md-6">
-                                        <p>3</p>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-4" *ngIf="ct[1]; else elseblock1">
+                                            <p>{{user.name}}</p>
+                                        </div>
+                                        <div class="col-md-2 offset-1">
+                                            <button class="profile-edit-btn" (click)="edit(1)"
+                                                *ngIf="ct[1];">Edit</button>
+                                        </div>
+                                        <ng-template #elseblock1>
+                                            <div class="col-md-4">
+                                                <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,1)">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control input" name="name"
+                                                            placeholder="name" formControlName="name">
+                                                    </div>
+                                                    <div class="btn-group btn-group-justified ">
+                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                        <button type="button" class="profile-edit-btn"
+                                                            (click)="show(1)">Cancel</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-4" *ngIf="ct[2]; else elseblock2">
+                                            <p>{{user.email}}</p>
+                                        </div>
+                                        <div class="col-md-2 offset-1">
+                                            <button class="profile-edit-btn" (click)="edit(2)"
+                                                *ngIf="ct[2];">Edit</button>
+                                        </div>
+
+                                        <ng-template #elseblock2>
+                                            <div class="col-md-4">
+                                                <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,2)">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control input" name="email"
+                                                            placeholder="email" formControlName="email">
+                                                    </div>
+                                                    <div class="btn-group btn-group-justified ">
+                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                        <button type="button" class="profile-edit-btn"
+                                                            (click)="show(2)">Cancel</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label>Phone</label>
+                                        </div>
+                                        <div class="col-md-4" *ngIf="ct[3]; else elseblock3">
+                                            <p *ngIf="user.phone; else addphone;">{{user.phone}}</p>
+                                            <ng-template #addphone>
+                                                <p style="color: rgb(133, 131, 131);">Add Phone Number</p>
+                                            </ng-template>
+                                        </div>
+                                        <div class="col-md-2 offset-1">
+                                            <button class="profile-edit-btn" (click)="edit(3)"
+                                                *ngIf="ct[3];">Edit</button>
+                                        </div>
+
+                                        <ng-template #elseblock3>
+                                            <div class="col-md-4">
+                                                <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,3)">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control input" name="phone"
+                                                            placeholder="phone" formControlName="phone">
+                                                    </div>
+                                                    <div class="btn-group btn-group-justified ">
+                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                        <button type="button" class="profile-edit-btn"
+                                                            (click)="show(3)">Cancel</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label>Bio</label>
+                                        </div>
+                                        <div class="col-md-4" *ngIf="ct[4]; else elseblock4">
+                                            <p *ngIf="user.bio; else addbio;">{{user.bio}}</p>
+                                            <ng-template #addbio>
+                                                <p style="color: rgb(133, 131, 131);">Add Bio</p>
+                                            </ng-template>
+                                        </div>
+                                        <div class="col-md-2 offset-1">
+                                            <button class="profile-edit-btn" (click)="edit(4)"
+                                                *ngIf="ct[4];">Edit</button>
+                                        </div>
+
+                                        <ng-template #elseblock4>
+                                            <div class="col-md-4">
+                                                <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,4)">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control input" name="bio"
+                                                            placeholder="bio" formControlName="bio">
+                                                    </div>
+                                                    <div class="btn-group btn-group-justified ">
+                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                        <button type="button" class="profile-edit-btn"
+                                                            (click)="show(4)">Cancel</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </ng-template>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Most Visited Place</label>
+
+
+
+
+
+
+
+
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Total Tours Done</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>3</p>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <p>Sydney</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Most Visited Place</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Sydney</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>Your detail description</p>
+                                        </div>
                                     </div>
                                 </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>Your detail description</p>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
-        </div>
-    </form>           
-</div>
+            <div class="row logout">
+                <div class=" col-md-2">
+                    <button class=" btn btn-primary btn- btn-lg " (click)="logout()">Logout</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
 </section>

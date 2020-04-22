@@ -67,6 +67,7 @@ import { UserdashboardModule } from './userdashboard/userdashboard.module';
     UserdashboardModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClientModule, // optional, only if you use [src] attribute
