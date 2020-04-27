@@ -23,6 +23,11 @@
     height: 250px  ;
 
 }
+button:disabled {
+    cursor: not-allowed;
+    background-color: rgba(245, 9, 9, 0.692);
+    color: white;
+  }
 .profile-img img{
     width: 70%;
     height: 100%;
@@ -60,6 +65,17 @@
     font-weight: 600;
     color: #6c757d;
     cursor: pointer;
+}
+.profile-edit{
+    border: none;
+    border-radius: 1.5rem;
+    width: 20%;
+    padding: 1%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+    margin-top: -10%;
+
 }
 .proile-rating{
     font-size: 12px;
@@ -107,4 +123,35 @@
 .profile-tab p{
     font-weight: 600;
     color: #0062cc;
+}
+
+.form-group {
+    /* border: 1px solid black; */
+    margin-top: 0px;
+    padding-top: 0;
+    height: 64px;
+    width: 99%;
+}
+.form-group input{
+margin-top: 0px;
+/* outline-style: dashed; */
+
+height: 50%;
+box-shadow: 0 0 2   px  rgb(0, 0, 0)  !important;
+background-color: rgba(241, 239, 239, 0.466);
+
+}
+input:focus {
+    background-color: rgba(241, 239, 239, 0.466);
+}
+.invalid-feedback{
+    /* border: 1px solid black; */
+    padding-left: 10px;
+}
+.btn-group{
+margin-top: 0;
+/* border: 1px solid black; */
+margin-left: 120%;
+width: 100%;
+margin-top: -85%;
 }

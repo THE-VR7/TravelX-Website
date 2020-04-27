@@ -108,7 +108,6 @@ input {
 }
 input:focus {
     background-color: rgba(241, 239, 239, 0.466);
-    
 }
 .is-invalid {
     box-shadow:inset 0 0 4px  rgb(163, 5, 5)  !important;

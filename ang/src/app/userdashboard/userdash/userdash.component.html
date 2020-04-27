@@ -55,57 +55,57 @@
                             <div class="tab-content profile-tab" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home" role="tabpanel"
                                     aria-labelledby="home-tab">
-                                    <div class="row">
-                                        <div class="col-md-5">
+                                    <!-- border: 1px solid mediumblue; -->
+                                    <div class="row" style=" height: 60px; ">
+                                        <div class="col-md-4">
                                             <label>User Name</label>
                                         </div>
-                                        <div class="col-md-4" *ngIf="ct[0]; else elseblock0">
+                                        <div class="col-md-8"   *ngIf="ct[0]; else elseblock0">
                                             <p>{{user.username}}</p>
+                                            <button class="profile-edit float-right" (click)="edit(0)"
+                                                    *ngIf="ct[0];">Edit</button>
                                         </div>
-                                        <div class="col-md-2 offset-1">
-                                            <button class="profile-edit-btn" (click)="edit(0)"
-                                                *ngIf="ct[0];">Edit</button>
-                                        </div>
+                                        
 
-                                        <ng-template #elseblock0>
+                                        <ng-template #elseblock0 >
                                             <div class="col-md-4">
                                                 <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,0)">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control input" name="username"
+                                                        <input type="text" class="form-control input" [ngClass]="{'is-invalid': !editform.get('username').valid , 'is-valid': editform.get('username').valid && editform.get('username').touched }"  name="username"
                                                             placeholder="username" formControlName="username">
                                                             <div class="invalid-feedback d-block"  *ngIf="editform.get('username').hasError('required') 
-                                                            && editform.get('username').touched">Value is required
+                                                            && editform.get('username').touched" >Value is required
                                                             </div>    
                                                     </div>
-                                                    <div class="btn-group btn-group-justified ">
-                                                        <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
-                                                        <button type="button" class="profile-edit-btn"
-                                                            (click)="show(0)">Cancel</button>
+                                                    <div class="d-inline-flex btn-group">
+                                                        <button [disabled]="editform.invalid" type="submit" class=" profile-edit-btn">Save</button>
+                                                        <button type="button" class="profile-edit-btn" (click)="show(0)">Cancel</button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </ng-template>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-5">
+                                    <div class="row" style=" height: 60px; ">
+                                        <div class="col-md-4">
                                             <label>Name</label>
                                         </div>
-                                        <div class="col-md-4" *ngIf="ct[1]; else elseblock1">
+                                        <div class="col-md-8" *ngIf="ct[1]; else elseblock1">
                                             <p>{{user.name}}</p>
-                                        </div>
-                                        <div class="col-md-2 offset-1">
-                                            <button class="profile-edit-btn" (click)="edit(1)"
+                                            <button class="profile-edit float-right" (click)="edit(1)"
                                                 *ngIf="ct[1];">Edit</button>
                                         </div>
                                         <ng-template #elseblock1>
                                             <div class="col-md-4">
                                                 <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,1)">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control input" name="name"
+                                                        <input type="text" [ngClass]="{'is-invalid': !editform.get('name').valid , 'is-valid': editform.get('name').valid && editform.get('name').touched }" class="form-control input" name="name"
                                                             placeholder="name" formControlName="name">
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('name').hasError('required') 
+                                                            && editform.get('name').touched">Value is required
+                                                            </div>       
                                                     </div>
-                                                    <div class="btn-group btn-group-justified ">
-                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                    <div class="d-inline-flex btn-group ">
+                                                        <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(1)">Cancel</button>
                                                     </div>
@@ -113,27 +113,29 @@
                                             </div>
                                         </ng-template>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-5">
+                                    <div class="row" style=" height: 60px; ">
+                                        <div class="col-md-4">
                                             <label>Email</label>
                                         </div>
-                                        <div class="col-md-4" *ngIf="ct[2]; else elseblock2">
+                                        <div class="col-md-8" *ngIf="ct[2]; else elseblock2">
                                             <p>{{user.email}}</p>
-                                        </div>
-                                        <div class="col-md-2 offset-1">
-                                            <button class="profile-edit-btn" (click)="edit(2)"
+                                            <button class="profile-edit float-right" (click)="edit(2)"
                                                 *ngIf="ct[2];">Edit</button>
                                         </div>
+                                        
 
                                         <ng-template #elseblock2>
                                             <div class="col-md-4">
                                                 <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,2)">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control input" name="email"
+                                                        <input type="text" [ngClass]="{'is-invalid': !editform.get('email').valid , 'is-valid': editform.get('email').valid && editform.get('email').touched }" class="form-control input" name="email"
                                                             placeholder="email" formControlName="email">
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('email').hasError('required') 
+                                                            && editform.get('email').touched">Value is required
+                                                            </div>       
                                                     </div>
-                                                    <div class="btn-group btn-group-justified ">
-                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                    <div class="d-inline-flex btn-group  ">
+                                                        <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(2)">Cancel</button>
                                                     </div>
@@ -141,30 +143,32 @@
                                             </div>
                                         </ng-template>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-5">
+                                    <div class="row" style=" height: 60px; ">
+                                        <div class="col-md-4">
                                             <label>Phone</label>
                                         </div>
-                                        <div class="col-md-4" *ngIf="ct[3]; else elseblock3">
+                                        <div class="col-md-8" *ngIf="ct[3]; else elseblock3">
                                             <p *ngIf="user.phone; else addphone;">{{user.phone}}</p>
+                                            <button class="profile-edit float-right" (click)="edit(3)"
+                                                *ngIf="ct[3];">Edit</button>
                                             <ng-template #addphone>
                                                 <p style="color: rgb(133, 131, 131);">Add Phone Number</p>
                                             </ng-template>
                                         </div>
-                                        <div class="col-md-2 offset-1">
-                                            <button class="profile-edit-btn" (click)="edit(3)"
-                                                *ngIf="ct[3];">Edit</button>
-                                        </div>
+                                        
 
                                         <ng-template #elseblock3>
                                             <div class="col-md-4">
                                                 <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,3)">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control input" name="phone"
+                                                        <input type="text" [ngClass]="{'is-invalid': !editform.get('phone').valid , 'is-valid': editform.get('phone').valid && editform.get('phone').touched }" class="form-control input" name="phone"
                                                             placeholder="phone" formControlName="phone">
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('phone').hasError('required') 
+                                                            && editform.get('phone').touched">Value is required
+                                                            </div>   
                                                     </div>
-                                                    <div class="btn-group btn-group-justified ">
-                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                    <div class="d-inline-flex btn-group ">
+                                                        <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(3)">Cancel</button>
                                                     </div>
@@ -172,18 +176,16 @@
                                             </div>
                                         </ng-template>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-5">
+                                    <div class="row" style=" height: 60px; ">
+                                        <div class="col-md-4">
                                             <label>Bio</label>
                                         </div>
-                                        <div class="col-md-4" *ngIf="ct[4]; else elseblock4">
+                                        <div class="col-md-8" *ngIf="ct[4]; else elseblock4">
                                             <p *ngIf="user.bio; else addbio;">{{user.bio}}</p>
                                             <ng-template #addbio>
                                                 <p style="color: rgb(133, 131, 131);">Add Bio</p>
                                             </ng-template>
-                                        </div>
-                                        <div class="col-md-2 offset-1">
-                                            <button class="profile-edit-btn" (click)="edit(4)"
+                                            <button class="profile-edit float-right" (click)="edit(4)"
                                                 *ngIf="ct[4];">Edit</button>
                                         </div>
 
@@ -191,10 +193,13 @@
                                             <div class="col-md-4">
                                                 <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,4)">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control input" name="bio"
+                                                        <input type="text" [ngClass]="{'is-invalid': !editform.get('bio').valid , 'is-valid': editform.get('bio').valid && editform.get('bio').touched }" class="form-control input" name="bio"
                                                             placeholder="bio" formControlName="bio">
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('bio').hasError('required') 
+                                                            && editform.get('bio').touched">Value is required
+                                                            </div>   
                                                     </div>
-                                                    <div class="btn-group btn-group-justified ">
+                                                    <div class="d-inline-flex btn-group ">
                                                         <button [disabled]="editupform.invalid"  type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(4)">Cancel</button>

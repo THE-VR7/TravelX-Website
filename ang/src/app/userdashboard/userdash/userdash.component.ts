@@ -27,9 +27,9 @@ export class UserdashComponent implements OnInit {
       'name': [null,Validators.required],
       'username':[null,Validators.required],
       'email':[null,Validators.required],
-      'bio':[null,Validators.required],
-      'image':[null,Validators.required],
-      'phone':[null,Validators.required],
+      'bio':[null],
+      'image':[null],
+      'phone':[null],
       
     });
   }
