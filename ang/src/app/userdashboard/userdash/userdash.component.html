@@ -73,9 +73,12 @@
                                                     <div class="form-group">
                                                         <input type="text" class="form-control input" name="username"
                                                             placeholder="username" formControlName="username">
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('username').hasError('required') 
+                                                            && editform.get('username').touched">Value is required
+                                                            </div>    
                                                     </div>
                                                     <div class="btn-group btn-group-justified ">
-                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                        <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(0)">Cancel</button>
                                                     </div>
@@ -192,7 +195,7 @@
                                                             placeholder="bio" formControlName="bio">
                                                     </div>
                                                     <div class="btn-group btn-group-justified ">
-                                                        <button type="submit" class="profile-edit-btn">Save</button>
+                                                        <button [disabled]="editupform.invalid"  type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(4)">Cancel</button>
                                                     </div>
