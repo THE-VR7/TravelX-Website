@@ -31,9 +31,9 @@ export class UserdashComponent implements OnInit {
       'name': [null,[Validators.required, Validators.minLength(4)]],
       'bio':[null, Validators.maxLength(25)],
       'image':[null],
-      'phone':[null,Validators.pattern],
+      'phone':[null],
     });
-
+    // ,Validators.pattern
     this.editusername = this.fb.group({
       'id': [null,Validators.required],
       'username':[null,[Validators.required, Validators.minLength(2)],[this.uniqueval()]],
@@ -56,30 +56,38 @@ this.edituseremail = this.fb.group({
     this.config.getuserbyid(localuser.id).subscribe(
         user =>{
           this.user = user;
-          this.editform.setValue({
-            id: user.id,
-            name: user.name,
-            bio : user.bio,
-            image: user.image,
-            phone: user.phone
-          });
-          // console.log(user);
-
-          this.editusername.setValue({
-            id: user.id,
-            username: ''
-          });
-
-          this.edituseremail.setValue({
-            id: user.id,
-            email: ''
-          });
+          this.fillform(user);
 
         }
     );
       this.isloggedin = true;
     
   }
+
+  fillform(user)
+  {
+    this.editform.setValue({
+      id: user.id,
+      name: user.name,
+      bio : user.bio,
+      image: user.image,
+      phone: user.phone
+    });
+    // console.log(user);
+
+    this.editusername.setValue({
+      id: user.id,
+      username: user.username
+    });
+
+    this.edituseremail.setValue({
+      id: user.id,
+      email: user.email
+    });
+
+  }
+
+
   logout()
   {
     localStorage.removeItem('currentuser');
@@ -93,7 +101,13 @@ this.edituseremail = this.fb.group({
   }
   show(id:number)
   {
+    this.editform.reset();
+    this.editusername.reset();
+    this.edituseremail.reset();
+    
+    this.fillform(this.user);
     this.ct[id]=true;
+    
   }
 
   updateform(formdata : NgForm,ind:number)

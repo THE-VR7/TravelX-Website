@@ -92,9 +92,9 @@ export class ConfigService {
   }
   getuserbyname(user1:string): Observable<any> {
     let url = 'api/user';
-    console.log(user1);
+    // console.log(user1);
     user1 = '^'+user1.trim()+'$';
-    console.log(user1);
+    // console.log(user1);
     return this.http.get(url+ '?username=' + user1).pipe(
       tap(
         // user => console.log(user)

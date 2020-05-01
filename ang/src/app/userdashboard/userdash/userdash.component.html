@@ -71,7 +71,7 @@
                                             <div class="col-md-4">
                                                 <form [formGroup]="editusername" (ngSubmit)="updateform(editusername.value,0)">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control input" [ngClass]="{'is-invalid': !editusername.get('username').valid && editusername.get('username').dirty , 'is-valid': editusername.get('username').valid && editusername.get('username').dirty }"  name="username"
+                                                        <input type="text" class="form-control input-lg" [ngClass]="{'is-invalid': !editusername.get('username').valid && editusername.get('username').dirty , 'is-valid': editusername.get('username').valid && editusername.get('username').dirty }"  name="username"
                                                             placeholder="username" formControlName="username">
                                                             <div class="invalid-feedback d-block"  *ngIf="editusername.get('username').hasError('required') 
                                                             && (editusername.get('username').touched || editusername.get('username').dirty)" >Value is required
@@ -80,12 +80,12 @@
                                                             && (editusername.get('username').touched || editusername.get('username').dirty)" >Enter atleast 2 letters
                                                             </div>
                                                             <!-- <app-spinner *ngIf="model.pending"></app-spinner> -->
-                                                            <div *ngIf="editusername.get('username').hasError('userExists')" class="invalid-feedback d-block"> 
-                                                                User  already exists. 
+                                                            <div *ngIf="editusername.get('username').hasError('userExists') && editusername.get('username').touched" class="invalid-feedback d-block"> 
+                                                                User already exists. 
                                                              </div>
                                                     </div>
                                                     <div class="d-inline-flex btn-group">
-                                                        <button [disabled]="editusername.invalid" type="submit" class=" profile-edit-btn">Save</button>
+                                                        <button [disabled]="editusername.invalid && editusername.touched" type="submit" class=" profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn" (click)="show(0)">Cancel</button>
                                                     </div>
                                                 </form>
@@ -151,7 +151,7 @@
                                                              </div>       
                                                     </div>
                                                     <div class="d-inline-flex btn-group  ">
-                                                        <button [disabled]="edituseremail.invalid" type="submit" class="profile-edit-btn">Save</button>
+                                                        <button [disabled]="edituseremail.invalid && edituseremail.get('email').touched" type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(2)">Cancel</button>
                                                     </div>
@@ -177,11 +177,16 @@
                                             <div class="col-md-4">
                                                 <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,3)">
                                                     <div class="form-group">
-                                                        <input type="text" [ngClass]="{'is-invalid': !editform.get('phone').valid , 'is-valid': editform.get('phone').valid && editform.get('phone').touched }" class="form-control input" name="phone"
-                                                            placeholder="phone"  pattern="^[789]\d{9}$" formControlName="phone">
+                                                        <input type="text" 
+                                                        [ngClass]="{'is-invalid': !editform.get('phone').valid , 'is-valid': editform.get('phone').valid && editform.get('phone').touched }" 
+                                                        class="form-control input" 
+                                                        pattern="^[789]\d{9}$"
+                                                        name="phone"
+                                                            placeholder="Phone No." formControlName="phone">
                                                             <div class="invalid-feedback d-block"  *ngIf="editform.get('phone').hasError('pattern') 
                                                             && (editform.get('phone').touched || editform.get('phone').dirty)">Not a Valid Number
                                                             </div>   
+                                                            <!--  -->
                                                     </div>
                                                     <div class="d-inline-flex btn-group ">
                                                         <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
@@ -223,7 +228,7 @@
 
                                             </div>
                                         </ng-template>
-                                        <p>{{editform.value | json}} {{editform.status | json}} </p>
+                                        <!-- <p>{{editform.value | json}} {{editform.status | json}} </p> -->
 
                                     </div>
                                 </div>
