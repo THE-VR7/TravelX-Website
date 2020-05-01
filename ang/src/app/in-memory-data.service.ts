@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService , RequestInfo, ResponseOptions} from 'angular-in-memory-web-api';
+import { InMemoryDbService , RequestInfo, ResponseOptions, STATUS, getStatusText} from 'angular-in-memory-web-api';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
       const user = [
         { id: 1, name: 'Vineet', username: 'imVR7',email:'vineetrathor57@gmail.com',password :'welcome','bio': 'This is the VR7','phone':8171015682 ,'image':'1.jpg'},
-        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor009@gmail.com',password:'welcome','bio': null,'phone': null , 'image': null },
+        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor007@gmail.com',password:'welcome','bio': null,'phone': null , 'image': null },
       ];   
 
       const menu = [
@@ -87,7 +88,7 @@ export class InMemoryDataService implements InMemoryDbService {
     {
       if(reqInfo.id === 'login')
       {
-        console.log("from login");
+        // console.log("from login");
         return reqInfo.utils.createResponse$(() => {
           const dataEncap = reqInfo.utils.getConfig().dataEncapsulation;
           const users = reqInfo.collection.find(usr => {
@@ -125,17 +126,35 @@ export class InMemoryDataService implements InMemoryDbService {
 
 
         });
-    
-    
-    
-    
     }
       else if(reqInfo.id === 'signup')
       {
         reqInfo.id = null;
-        console.log("from signup");
+        // console.log("from signup");
       }
 
     }
+
+    patch(reqInfo: RequestInfo): Observable<Response> {
+      
+      const users = reqInfo.collection.find(usr => {
+        return reqInfo.req['body'].id === usr.id;
+      });
+      // console.log(users);
+      // console.log("Inside Patch");
+
+
+
+      const responseOptions: ResponseOptions = {
+          headers: reqInfo.headers,
+          url: reqInfo.url,
+          body:users,
+          status: STATUS.OK,
+          statusText: getStatusText(STATUS.OK),
+      }
+      return reqInfo.utils.createResponse$(() => responseOptions);
+  }
+
+
 
 }

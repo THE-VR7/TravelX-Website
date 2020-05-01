@@ -1,7 +1,10 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm, AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
+import { ConfigService } from '../config.service';
+import { Observable, timer } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -27,7 +30,8 @@ export class SignupComponent implements OnInit {
     'username': {
       'required':      'User Name is required.',
       'minlength':     'User Name must be at least 3 characters long.',
-      'maxlength':     'User Name cannot be more than 25 characters long.'
+      'maxlength':     'User Name cannot be more than 25 characters long.',
+      'userExists':    ''
     },
     'name': {
       'required':      ' Name is required.',
@@ -40,13 +44,14 @@ export class SignupComponent implements OnInit {
     },
     'email': {
       'required':      'Email is required.',
-      'email':         'Email not in valid format.'
-    },
+      'email':         'Email not in valid format.',
+      'emailExists': ''
+        },
   };
 
 
 
-  constructor( private fb : FormBuilder, private auth: AuthenticationService, private router:Router ) { 
+  constructor( private fb : FormBuilder, private auth: AuthenticationService, private router:Router ,private config: ConfigService) { 
     this.createform();
 
   }
@@ -58,16 +63,16 @@ export class SignupComponent implements OnInit {
   createform()
   {
     this.signupform = this.fb.group({
-      'username': ['',[Validators.required,Validators.minLength(3),Validators.maxLength(25)]],
+      'username': ['',[Validators.required,Validators.minLength(3),Validators.maxLength(25)],[this.uniqueval()]],
       'password': ['',[Validators.required,Validators.minLength(6)]],
       'name': ['',[Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-      'email':['',[Validators.required,Validators.email]]
+      'email':['',[Validators.required,Validators.email],[this.uniqueemail()]]
     });
 
     this.signupform.valueChanges
     .subscribe(data => {
       this.onvaluechange(data);
-      console.log(this.formErrors);
+      // console.log(this.formErrors);
     });
 
     this.onvaluechange();
@@ -92,6 +97,7 @@ export class SignupComponent implements OnInit {
           const messages = this.validationMessages[field];
           for(const key in control.errors)
           {
+            // console.log(key);
             if(control.errors.hasOwnProperty(key))
             {
               this.formErrors[field] += messages[key] + ' ';
@@ -101,6 +107,36 @@ export class SignupComponent implements OnInit {
       }
     }
 
+  }
+
+  uniqueval(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      let debounceTime = 700; //milliseconds
+      return timer(debounceTime).pipe(switchMap(()=> {
+      return this.config.getuserbyname(control.value).pipe(
+        map(users => {
+          return (users && users.length > 0) ? {"userExists": true} : null;
+      return null; 
+        })
+      );
+    })
+  );
+  }
+  }
+
+  uniqueemail(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      let debounceTime = 700; //milliseconds
+      return timer(debounceTime).pipe(switchMap(()=> {
+      return this.config.getuserbyemail(control.value).pipe(
+        map(users => {
+          return (users && users.length > 0) ? {"emailExists": true} : null;
+      return null; 
+        })
+      );
+    })
+  );
+  }
   }
 
 

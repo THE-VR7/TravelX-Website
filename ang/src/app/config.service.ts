@@ -57,6 +57,7 @@ export class ConfigService {
     );
   }
 
+
   getsettings(database: string, id?:string): Observable<any[]> {
     let uid = id || null;
     let url:string;
@@ -89,6 +90,28 @@ export class ConfigService {
       catchError(this.handleError('get user by id', []))
     );
   }
+  getuserbyname(user1:string): Observable<any> {
+    let url = 'api/user';
+    console.log(user1);
+    user1 = '^'+user1.trim()+'$';
+    console.log(user1);
+    return this.http.get(url+ '?username=' + user1).pipe(
+      tap(
+        // user => console.log(user)
+      )
+    );
+  }
+  getuserbyemail(user1:string): Observable<any> {
+    let url = 'api/user';
+    user1 = user1.trim().replace('@', '%40');
+    user1 = '^'+user1.trim()+'$';
+    return this.http.get(url+ '?email=' + user1).pipe(
+      tap(
+        // user => console.log(user)
+      )
+    );
+  }
+  
 
 
   updateposts(formdata: NgForm): Observable<Post[]> {
@@ -100,16 +123,86 @@ export class ConfigService {
     );
   }
 
-  updateuser(formdata: NgForm): Observable<user[]> {
+  updateuser(formdata): Observable<any> {
     console.log(formdata);
     let url = 'api/user';
-    return this.http.put<any>(`${url}`, formdata, httpOptions).pipe(
+    return this.http.patch<any>(`${url}`, formdata, httpOptions).pipe(
       tap(
+        user => {
+          // console.log(user);
+            const id = user.id;
+           this.http.delete<any>(`${url}/${id}`, httpOptions).pipe(
+            tap(us => console.log('deleted hero id='+us.id)
+            ),
+            catchError(this.handleError('Delete user failed', []))
+            );
+          // user.username = formdata.username;
+          Object.keys(formdata).forEach(key=>user[key]=formdata[key]);
+
+          // console.log("Passed deletion");
+          // console.log(user);
+           this.http.post<any>(`${url}`, user).pipe(
+            tap(
+              // post => console.log(post)
+            ));
+        }
       ),
       catchError(this.handleError('Update user failed', []))
     );
   }
 
+  updateemail(formdata): Observable<any> {
+    console.log(formdata);
+    let url = 'api/user';
+    return this.http.patch<any>(`${url}`, formdata, httpOptions).pipe(
+      tap(
+        user => {
+          console.log(user);
+            const id = user.id;
+           this.http.delete<any>(`${url}/${id}`, httpOptions).pipe(
+            tap(us => console.log('deleted hero id='+us.id)
+            ),
+            catchError(this.handleError('Delete user failed', []))
+            );
+          user.email = formdata.email;
+
+          // console.log("Passed deletion");
+          // console.log(user);
+           this.http.post<any>(`${url}`, user).pipe(
+            tap(
+              post => console.log(post)
+            ));
+        }
+      ),
+      catchError(this.handleError('Update user failed', []))
+    );
+  }
+
+  updaterest(formdata): Observable<any> {
+    console.log(formdata);
+    let url = 'api/user';
+    return this.http.patch<any>(`${url}`, formdata, httpOptions).pipe(
+      tap(
+        user => {
+          console.log(user);
+            const id = user.id;
+           this.http.delete<any>(`${url}/${id}`, httpOptions).pipe(
+            tap(us => console.log('deleted hero id='+us.id)
+            ),
+            catchError(this.handleError('Delete user failed', []))
+            );
+          user.username = formdata.username;
+          // console.log("Passed deletion");
+          // console.log(user);
+           this.http.post<any>(`${url}`, user).pipe(
+            tap(
+              post => console.log(post)
+            ));
+        }
+      ),
+      catchError(this.handleError('Update user failed', []))
+    );
+  }
 
   addposts(formdata: NgForm): Observable<any> {
     return this.http.post<any>(`${this.apiurl}`, formdata).pipe(

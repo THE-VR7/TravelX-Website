@@ -18,19 +18,26 @@
                     <div class="invalid-feedback d-block" *ngIf="formErrors.name" >
                         {{formErrors.name}}
                     </div>
+                    
                 </div>
                 <div class="form-group">
-                    <input type="text"  class="form-control input-lg" [ngClass]="{'is-invalid': formErrors.username , 'is-valid': !formErrors.username && signupform.get('username').valid }"  id="tuname1" name="username" placeholder="Username" formControlName="username"
+                    <input type="text"  class="form-control input-lg" [ngClass]="{'is-invalid': formErrors.username || (!signupform.get('username').valid && signupform.get('username').dirty) , 'is-valid': !formErrors.username && signupform.get('username').valid }"  id="tuname1" name="username" placeholder="Username" formControlName="username"
                         required>
                         <div class="invalid-feedback d-block"  *ngIf="formErrors.username" >
                             {{formErrors.username}}
-                        </div>    
+                        </div> 
+                        <div *ngIf="signupform.get('username').hasError('userExists')" class="invalid-feedback d-block"> 
+                            User  already exists. 
+                         </div>   
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control input-lg"  [ngClass]="{'is-invalid': formErrors.email , 'is-valid': !formErrors.email && signupform.get('email').valid }" name="email" formControlName="email"  placeholder="Email" email required>
+                    <input type="email" class="form-control input-lg"  [ngClass]="{'is-invalid': formErrors.email || (!signupform.get('email').valid && signupform.get('email').dirty), 'is-valid': !formErrors.email && signupform.get('email').valid }" name="email" formControlName="email"  placeholder="Email" email required>
                     <div class="invalid-feedback d-block"  *ngIf="formErrors.email" >
                         {{formErrors.email}}
                     </div>
+                    <div *ngIf="signupform.get('email').hasError('emailExists')" class="invalid-feedback d-block"> 
+                        Email already exists. 
+                     </div>  
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control input-lg" [ngClass]="{'is-invalid': formErrors.password , 'is-valid': !formErrors.password && signupform.get('password').valid }" name="password" placeholder="Password" formControlName="password" required>

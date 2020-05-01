@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfigService } from 'src/app/config.service';
 import { user } from '../../user';
-import { FormGroup, FormBuilder, Validators, NgForm ,  ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm ,  ReactiveFormsModule, AsyncValidatorFn, ValidationErrors, AbstractControl } from '@angular/forms';
+import { Observable, timer } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-userdash',
@@ -15,7 +18,8 @@ export class UserdashComponent implements OnInit {
   isloggedin: boolean;
   ct: boolean[] = [true,true,true,true,true];
   editform : FormGroup;
-
+  editusername : FormGroup;
+  edituseremail : FormGroup;
 
   constructor( private router : Router, private config: ConfigService,private fb : FormBuilder, ) { }
 
@@ -24,17 +28,27 @@ export class UserdashComponent implements OnInit {
 
     this.editform = this.fb.group({
       'id': [null,Validators.required],
-      'name': [null,Validators.required],
-      'username':[null,Validators.required],
-      'email':[null,Validators.required],
-      'bio':[null],
+      'name': [null,[Validators.required, Validators.minLength(4)]],
+      'bio':[null, Validators.maxLength(25)],
       'image':[null],
-      'phone':[null],
-      
+      'phone':[null,Validators.pattern],
     });
+
+    this.editusername = this.fb.group({
+      'id': [null,Validators.required],
+      'username':[null,[Validators.required, Validators.minLength(2)],[this.uniqueval()]],
+    });
+
+this.edituseremail = this.fb.group({
+      'id': [null,Validators.required],
+      'email':[null,[Validators.required, Validators.email],[this.uniqueemail()]],
+    });
+    
+
   }
+  // this.updateuser = this.fb.group({});
 
-
+  // 
   getuser()
   {
     var localuser = JSON.parse(localStorage.getItem('currentuser'));
@@ -45,13 +59,22 @@ export class UserdashComponent implements OnInit {
           this.editform.setValue({
             id: user.id,
             name: user.name,
-            username: user.username,
-            email: user.email,
             bio : user.bio,
             image: user.image,
             phone: user.phone
           });
           // console.log(user);
+
+          this.editusername.setValue({
+            id: user.id,
+            username: ''
+          });
+
+          this.edituseremail.setValue({
+            id: user.id,
+            email: ''
+          });
+
         }
     );
       this.isloggedin = true;
@@ -84,13 +107,35 @@ export class UserdashComponent implements OnInit {
     this.show(ind);
   }
 
-  // updatename(formdata : NgForm)
-  // {
-  //   console.log(formdata);
-  // //   this.editform.patchValue({
-  // //     'username': 
-  // //  });
-  // }
+  uniqueval(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      let debounceTime = 700; //milliseconds
+      return timer(debounceTime).pipe(switchMap(()=> {
+      return this.config.getuserbyname(control.value).pipe(
+        map(users => {
+          return (users && users.length > 0) ? {"userExists": true} : null;
+      return null; 
+        })
+      );
+    })
+  );
+  }
+  }
+
+  uniqueemail(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      let debounceTime = 700; //milliseconds
+      return timer(debounceTime).pipe(switchMap(()=> {
+      return this.config.getuserbyemail(control.value).pipe(
+        map(users => {
+          return (users && users.length > 0) ? {"emailExists": true} : null;
+      return null; 
+        })
+      );
+    })
+  );
+  }
+  }
 
 
 }

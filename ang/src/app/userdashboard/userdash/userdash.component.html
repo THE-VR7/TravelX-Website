@@ -69,16 +69,23 @@
 
                                         <ng-template #elseblock0 >
                                             <div class="col-md-4">
-                                                <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,0)">
+                                                <form [formGroup]="editusername" (ngSubmit)="updateform(editusername.value,0)">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control input" [ngClass]="{'is-invalid': !editform.get('username').valid , 'is-valid': editform.get('username').valid && editform.get('username').touched }"  name="username"
+                                                        <input type="text" class="form-control input" [ngClass]="{'is-invalid': !editusername.get('username').valid && editusername.get('username').dirty , 'is-valid': editusername.get('username').valid && editusername.get('username').dirty }"  name="username"
                                                             placeholder="username" formControlName="username">
-                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('username').hasError('required') 
-                                                            && editform.get('username').touched" >Value is required
-                                                            </div>    
+                                                            <div class="invalid-feedback d-block"  *ngIf="editusername.get('username').hasError('required') 
+                                                            && (editusername.get('username').touched || editusername.get('username').dirty)" >Value is required
+                                                            </div>
+                                                            <div class="invalid-feedback d-block"  *ngIf="editusername.get('username').hasError('minlength') 
+                                                            && (editusername.get('username').touched || editusername.get('username').dirty)" >Enter atleast 2 letters
+                                                            </div>
+                                                            <!-- <app-spinner *ngIf="model.pending"></app-spinner> -->
+                                                            <div *ngIf="editusername.get('username').hasError('userExists')" class="invalid-feedback d-block"> 
+                                                                User  already exists. 
+                                                             </div>
                                                     </div>
                                                     <div class="d-inline-flex btn-group">
-                                                        <button [disabled]="editform.invalid" type="submit" class=" profile-edit-btn">Save</button>
+                                                        <button [disabled]="editusername.invalid" type="submit" class=" profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn" (click)="show(0)">Cancel</button>
                                                     </div>
                                                 </form>
@@ -101,8 +108,11 @@
                                                         <input type="text" [ngClass]="{'is-invalid': !editform.get('name').valid , 'is-valid': editform.get('name').valid && editform.get('name').touched }" class="form-control input" name="name"
                                                             placeholder="name" formControlName="name">
                                                             <div class="invalid-feedback d-block"  *ngIf="editform.get('name').hasError('required') 
-                                                            && editform.get('name').touched">Value is required
+                                                            && (editform.get('name').touched || editform.get('name').dirty)">Value is required
                                                             </div>       
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('name').hasError('minlength') 
+                                                            && (editform.get('name').touched || editform.get('name').dirty)" >Enter atleast 4 letters
+                                                            </div>
                                                     </div>
                                                     <div class="d-inline-flex btn-group ">
                                                         <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
@@ -126,16 +136,22 @@
 
                                         <ng-template #elseblock2>
                                             <div class="col-md-4">
-                                                <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,2)">
+                                                <form [formGroup]="edituseremail" (ngSubmit)="updateform(edituseremail.value,2)">
                                                     <div class="form-group">
-                                                        <input type="text" [ngClass]="{'is-invalid': !editform.get('email').valid , 'is-valid': editform.get('email').valid && editform.get('email').touched }" class="form-control input" name="email"
-                                                            placeholder="email" formControlName="email">
-                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('email').hasError('required') 
-                                                            && editform.get('email').touched">Value is required
-                                                            </div>       
+                                                        <input type="text" [ngClass]="{'is-invalid': !edituseremail.get('email').valid && edituseremail.get('email').dirty , 'is-valid': edituseremail.get('email').valid && edituseremail.get('email').dirty }" class="form-control input" name="email"
+                                                            placeholder="email" email formControlName="email">
+                                                            <div class="invalid-feedback d-block"  *ngIf="edituseremail.get('email').hasError('required') 
+                                                            && (edituseremail.get('email').touched || edituseremail.get('email').dirty)">Value is required
+                                                            </div> 
+                                                            <div class="invalid-feedback d-block"  *ngIf="edituseremail.get('email').hasError('email') 
+                                                            && (edituseremail.get('email').touched || edituseremail.get('email').dirty)">Not a Valid Email
+                                                            </div>  
+                                                            <div *ngIf="edituseremail.get('email').hasError('emailExists')" class="invalid-feedback d-block"> 
+                                                                Email already exists. 
+                                                             </div>       
                                                     </div>
                                                     <div class="d-inline-flex btn-group  ">
-                                                        <button [disabled]="editform.invalid" type="submit" class="profile-edit-btn">Save</button>
+                                                        <button [disabled]="edituseremail.invalid" type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(2)">Cancel</button>
                                                     </div>
@@ -162,9 +178,9 @@
                                                 <form [formGroup]="editform" (ngSubmit)="updateform(editform.value,3)">
                                                     <div class="form-group">
                                                         <input type="text" [ngClass]="{'is-invalid': !editform.get('phone').valid , 'is-valid': editform.get('phone').valid && editform.get('phone').touched }" class="form-control input" name="phone"
-                                                            placeholder="phone" formControlName="phone">
-                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('phone').hasError('required') 
-                                                            && editform.get('phone').touched">Value is required
+                                                            placeholder="phone"  pattern="^[789]\d{9}$" formControlName="phone">
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('phone').hasError('pattern') 
+                                                            && (editform.get('phone').touched || editform.get('phone').dirty)">Not a Valid Number
                                                             </div>   
                                                     </div>
                                                     <div class="d-inline-flex btn-group ">
@@ -185,8 +201,7 @@
                                             <ng-template #addbio>
                                                 <p style="color: rgb(133, 131, 131);">Add Bio</p>
                                             </ng-template>
-                                            <button class="profile-edit float-right" (click)="edit(4)"
-                                                *ngIf="ct[4];">Edit</button>
+                                            <button class="profile-edit float-right" (click)="edit(4)" *ngIf="ct[4]">Edit</button>
                                         </div>
 
                                         <ng-template #elseblock4>
@@ -195,18 +210,21 @@
                                                     <div class="form-group">
                                                         <input type="text" [ngClass]="{'is-invalid': !editform.get('bio').valid , 'is-valid': editform.get('bio').valid && editform.get('bio').touched }" class="form-control input" name="bio"
                                                             placeholder="bio" formControlName="bio">
-                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('bio').hasError('required') 
-                                                            && editform.get('bio').touched">Value is required
+                                                            <div class="invalid-feedback d-block"  *ngIf="editform.get('bio').hasError('maxlength') 
+                                                            && (editform.get('bio').touched || editform.get('bio').dirty)">MaxLength Reached
                                                             </div>   
                                                     </div>
                                                     <div class="d-inline-flex btn-group ">
-                                                        <button [disabled]="editupform.invalid"  type="submit" class="profile-edit-btn">Save</button>
+                                                        <button [disabled]="editform.invalid"  type="submit" class="profile-edit-btn">Save</button>
                                                         <button type="button" class="profile-edit-btn"
                                                             (click)="show(4)">Cancel</button>
                                                     </div>
                                                 </form>
+
                                             </div>
                                         </ng-template>
+                                        <p>{{editform.value | json}} {{editform.status | json}} </p>
+
                                     </div>
                                 </div>
 
