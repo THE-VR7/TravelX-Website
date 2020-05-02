@@ -13,22 +13,22 @@ The main objective of the Tours and Travel website is to manage the details of T
 #                                             	User Interface Design and Prototype:
 
 
-##Main Page 
+##   Main Page 
  ![image](https://raw.githubusercontent.com/THE-VR7/Hello-World/master/Folder1/Screenshot%20(81).png)
 
-##Tour Packages 
+##   Tour Packages 
 ![image](https://raw.githubusercontent.com/THE-VR7/Hello-World/master/Folder1/Screenshot%20(82).png) 
 
-##Blog 
+##   Blog 
 ![image](https://raw.githubusercontent.com/THE-VR7/Hello-World/master/Folder1/Screenshot%20(83).png)
 
-##Login
+##   Login
 ![image](https://raw.githubusercontent.com/THE-VR7/Hello-World/master/Folder1/Screenshot%20(84).png)
 
-##SignUp 
+##   SignUp 
 ![image](https://raw.githubusercontent.com/THE-VR7/Hello-World/master/Folder1/Screenshot%20(85).png)
 
-##Profile Module  
+##   Profile Module  
 ![image](https://raw.githubusercontent.com/THE-VR7/Hello-World/master/Folder1/Screenshot%20(86).png)
  
 
