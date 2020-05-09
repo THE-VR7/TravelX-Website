@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 // import { NgwWowService } from 'ngx-wow';
+import { Router, NavigationEnd} from '@angular/router'; 
+
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang';
+
+  constructor(private router: Router){
+    //subscribes every changes of your route
+    this.router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd){
+           //scroll to top
+           window.scrollTo(0,0);
+        }
+     });
+ }
+
+
 }

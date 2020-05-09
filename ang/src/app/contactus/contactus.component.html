@@ -2,7 +2,7 @@
   <div class="container">
     <div class="center-form panel">
       <div class="panel-body">
-        <a (click)=cancel()><i class="ion-close"></i></a>
+        <!-- <a (click)=cancel()><i class="ion-close"></i></a> -->
         <h4 class="text-center"><i class="ion-email"></i> Contact Us</h4>
         <form [formGroup]="contactusform" (ngSubmit)="sendMessage(contactusform.value)">
           <div class="form-group">
@@ -19,7 +19,8 @@
               placeholder="message"></textarea>
             <span class="ion-edit form-control-icon"></span>
           </div>
-          <button *ngIf="!sending" type="submit" class="btn btn-block btn-success"> Send Message</button>
+          <!-- *ngIf="!sending" -->
+          <button  type="submit" class="btn btn-block btn-success"> Send Message</button>
         </form>
       </div>
     </div>

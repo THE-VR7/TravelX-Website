@@ -51,7 +51,7 @@ export class ConfigService {
   getposts(): Observable<Post[]> {
     return this.http.get<any>(this.apiurl).pipe(
       tap(
-        post => console.log(post)
+        // post => console.log(post)
       ),
       catchError(this.handleError('get posts', []))
     );
@@ -65,7 +65,7 @@ export class ConfigService {
 
     return this.http.get<any>(url).pipe(
       tap(
-        setting => console.log(setting)
+        // setting => console.log(setting)
       ),
       catchError(this.handleError('setting', []))
     );
@@ -75,7 +75,7 @@ export class ConfigService {
   getpostbyid(id: number) {
     return this.http.get<any>(`${this.apiurl}/${id}`).pipe(
       tap(
-        post => console.log(post)
+        // post => console.log(post)
       ),
       catchError(this.handleError('get posts by id', []))
     );
@@ -117,7 +117,7 @@ export class ConfigService {
   updateposts(formdata: NgForm): Observable<Post[]> {
     return this.http.put<any>(`${this.apiurl}`, formdata, httpOptions).pipe(
       tap(
-        post => console.log(post)
+        // post => console.log(post)
       ),
       catchError(this.handleError('Update posts', []))
     );
@@ -132,7 +132,9 @@ export class ConfigService {
           // console.log(user);
             const id = user.id;
            this.http.delete<any>(`${url}/${id}`, httpOptions).pipe(
-            tap(us => console.log('deleted hero id='+us.id)
+            tap(us => {
+              // console.log('deleted hero id='+us.id)
+            }
             ),
             catchError(this.handleError('Delete user failed', []))
             );
@@ -160,7 +162,9 @@ export class ConfigService {
           console.log(user);
             const id = user.id;
            this.http.delete<any>(`${url}/${id}`, httpOptions).pipe(
-            tap(us => console.log('deleted hero id='+us.id)
+            tap(us => {
+              // console.log('deleted hero id='+us.id)
+            }
             ),
             catchError(this.handleError('Delete user failed', []))
             );
@@ -170,7 +174,7 @@ export class ConfigService {
           // console.log(user);
            this.http.post<any>(`${url}`, user).pipe(
             tap(
-              post => console.log(post)
+              // post => console.log(post)
             ));
         }
       ),
@@ -187,7 +191,9 @@ export class ConfigService {
           console.log(user);
             const id = user.id;
            this.http.delete<any>(`${url}/${id}`, httpOptions).pipe(
-            tap(us => console.log('deleted hero id='+us.id)
+            tap(us => {
+              // console.log('deleted hero id='+us.id)
+            }
             ),
             catchError(this.handleError('Delete user failed', []))
             );
@@ -196,7 +202,7 @@ export class ConfigService {
           // console.log(user);
            this.http.post<any>(`${url}`, user).pipe(
             tap(
-              post => console.log(post)
+              // post => console.log(post)
             ));
         }
       ),
@@ -207,7 +213,7 @@ export class ConfigService {
   addposts(formdata: NgForm): Observable<any> {
     return this.http.post<any>(`${this.apiurl}`, formdata).pipe(
       tap(
-        post => console.log(post)
+        // post => console.log(post)
       ),
       catchError(this.handleError('Add New posts', []))
     );

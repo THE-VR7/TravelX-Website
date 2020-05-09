@@ -145,7 +145,7 @@ export class SignupComponent implements OnInit {
   {
     this.auth.signup(formData).subscribe
     ((user) => {
-      console.log(`added user ${JSON.stringify(user)}`);
+      // console.log(`added user ${JSON.stringify(user)}`);
       this.router.navigate(['login']);
     });
     this.signupform.reset();

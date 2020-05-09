@@ -10,7 +10,7 @@ import { Post } from '../post';
 })
 export class ArticleComponent implements OnInit {
 
-  post = Post;
+  public post:any = Post;
   constructor(private route: ActivatedRoute,private config: ConfigService,private loc:Location) { }
 
   ngOnInit() {

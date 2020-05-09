@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserdashComponent } from './userdash/userdash.component';
+import { RouteguardService } from '../routeguard.service';
 
 
 const routes: Routes = [
-{ path: '' , component: UserdashComponent }
+{ path: 'dashboard' , component: UserdashComponent, canActivate: [RouteguardService] }
     
 ];
 

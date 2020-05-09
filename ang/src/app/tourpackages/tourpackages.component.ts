@@ -8,8 +8,8 @@ import {ConfigService} from '../config.service';
 })
 export class TourpackagesComponent implements OnInit {
 
-  tourpack = {};
-  message1 = "";
+ public tourpack:any = {};
+ public message1:any = "";
 
   constructor(private config:ConfigService ) { }
 

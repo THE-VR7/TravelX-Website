@@ -11,7 +11,7 @@ banner: {
   },
 
 
-  aboutus: {
+   aboutus: {
     logo: "assets/images/Travelex_Logo_Uniform.png",
     mob1: "+91 9154621138",
     mob2: "9996543952",
@@ -536,7 +536,7 @@ flight:
     
 
               {
-                name: "Levi",
+                name: "Levi, Finland",
                 duration: "3 Nights 4 Days",
                 discription: "Levi is a fell located in Finnish Lapland, and the largest ski resort in Finland.The resort is located in Kittilä municipality and is served by Kittilä Airport and Kolari railway station.",
                 sliderimg: 
@@ -601,7 +601,7 @@ flight:
 
 
                   {
-                    name: "Mt. Pilatus",
+                    name: "Mt.Pilatus",
                     duration: "6 Nights 7 Days",
                     discription: "Pilatus, also often referred to as Mount Pilatus, is a mountain massif overlooking Lucerne in Central Switzerland. It is composed of several peaks, of which the highest is named Tomlishorn. The whole mountain range stretches at least from the Lopper just opposite from Stansstad to the east as far as at least to the Mittaggüpfi (1,917 m [6,289 ft]) and the Risetestock (1,759 m [5,771 ft]) to the west on the border between LU and OW.",
                     sliderimg: 
@@ -791,7 +791,7 @@ flight:
                               },
 
                               {
-                                name: "Munnar",
+                                name: "Munnar & Cochin",
                                 duration: "5 Nights 4 Days",
                                 discription: "Munnar is a town in the Western Ghats mountain range in India’s Kerala state. A hill station and former resort for the British Raj elite, it's surrounded by rolling hills dotted with tea plantations established in the late 19th century. Eravikulam National Park, a habitat for the endangered mountain goat Nilgiri tahr, is home to the Lakkam Waterfalls, hiking trails and 2,695m-tall Anamudi Peak.",
 

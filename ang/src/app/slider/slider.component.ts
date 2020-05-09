@@ -9,7 +9,7 @@ import { NgwWowService } from 'ngx-wow';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
-  banner =  {
+ public banner:any =  {
   };
 
 
