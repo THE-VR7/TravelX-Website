@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit,AfterContentChecked {
       () => {
         // console.log("contentchanged");
         this.getuser();
+        this.isloggedin = this.auth.isloggedin();
       }
     );
   }

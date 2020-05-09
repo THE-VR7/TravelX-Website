@@ -9,7 +9,7 @@ import {ConfigService} from '../config.service';
 })
 export class FeedbackComponent implements OnInit {
 
-  feedback = {}
+ public feedback:any = {}
 
   constructor(private config:ConfigService ) { }
 

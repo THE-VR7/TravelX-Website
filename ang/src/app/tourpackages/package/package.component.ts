@@ -11,13 +11,13 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   providers: [ NgbCarouselConfig ]
 })
 export class PackageComponent implements OnInit {
-  package = {};
-  key = "nothing";
-  chilmsg = "";
+ public package:any = {};
+ public key:any = "nothing";
+ public chilmsg:any = "";
 
   
-  private param: Subscription;
-  constructor(private config:ConfigService, private boot : NgbCarouselConfig ) { 
+ public param: Subscription;
+  constructor(public config:ConfigService, public boot : NgbCarouselConfig ) { 
 
     boot.interval = 4000;
     boot.wrap = true;
@@ -42,14 +42,14 @@ if(chilmsg !== "Default message"){
     const pack = p1.find(function(todo,index){
       return todo.name.toLowerCase() === chilmsg.toLowerCase();
     })
-    console.log(pack);
+    // console.log(pack);
     this.package = pack;
   }
   else
   {
-    console.log(chilmsg);
+    // console.log(chilmsg);
     chilmsg = window.localStorage.getItem(this.key);
-    console.log(chilmsg);
+    // console.log(chilmsg);
     if(localStorage.getItem(this.key)!=="nothing")
     {
       this.getchilmsg(chilmsg);

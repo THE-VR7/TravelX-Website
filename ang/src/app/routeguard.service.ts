@@ -13,6 +13,7 @@ export class RouteguardService implements CanActivate {
       return true;
     }
     this.router.navigate(['/login'], {queryParams: {returnUrl : state.url}});
+    // console.log(state.url);
     return false;
   }
 

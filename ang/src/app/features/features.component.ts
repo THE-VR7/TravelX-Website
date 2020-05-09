@@ -9,7 +9,9 @@ import {ConfigService} from '../config.service';
 })
 export class FeaturesComponent implements OnInit {
 
-  features = {};
+  public features:any = {};
+  public message1:any = "";
+
 
   constructor(private config:ConfigService ) { }
 
@@ -20,6 +22,13 @@ export class FeaturesComponent implements OnInit {
 
   getfeatures(){
     return this.config.getConfig().features;
+  }
+
+  setmessage(s1: string)
+  {
+    this.config.sendmassage(s1);
+    // console.log("this is parent message");
+    // console.log(s1); 
   }
 
 }

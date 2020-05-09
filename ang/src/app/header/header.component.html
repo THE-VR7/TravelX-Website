@@ -1,30 +1,49 @@
 <div class="top-navbar">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mynav" style="background-color: rgb(6, 0, 12);">
-        <div class="container-fluid offset-1 ">
+        <div class="container-fluid ">
             <img class=" navbar-brand" style="width: 20%; height: 35px;"
                 src="assets\images\Travelex_Logo_Uniform.png"
                 alt="travelex">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            <button   class="navbar-toggler ml-n5" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!--  -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <app-navmenu [menu] = "menu" ></app-navmenu>
-                
-                
-
-
-
-<!--                 
-                    <li class="nav-item" >
-                        <a class="nav-link profile" (click)="logout()"  ><i class="fa fa-sign-in"  aria-hidden="true"></i>
-                            LogOut </a>
-                    </li> -->
-
+            <div id="logoicon" class="navbar-brand">
+                <app-usericon [profileimage] = "profileimage"  ></app-usericon>
             </div>
-            <app-usericon [profileimage] = "profileimage"  ></app-usericon>
+            <div class="collapse col-xl-auto col-lg-auto col-ml-auto navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav mr-auto">
+                    <li class="nav-item " >
+                        <a class="nav-link" [routerLink]="'/home'" routerLinkActive="active">
+                            <i class="fa fa-home" aria-hidden="true"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item " >
+                        <a class="nav-link" [routerLink]="'/tourpackage'" routerLinkActive="active">
+                            <i class="fa fa-home" aria-hidden="true"></i>Tour Packages
+                        </a>
+                    </li>
+                    <li class="nav-item " >
+                        <a class="nav-link" [routerLink]="'/blog'" routerLinkActive="active">
+                            <i class="fa fa-home" aria-hidden="true"></i>Blogs
+                        </a>
+                    </li>
+                    <li class="nav-item " *ngIf="!isloggedin" >
+                        <a class="nav-link" [routerLink]="[ '/login' ]" routerLinkActive="active">
+                            <i class="fa fa-home" aria-hidden="true"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isloggedin"   >
+                        <a class="nav-link" [routerLink]="[ '/signup' ]" routerLinkActive="active">
+                            <i class="fa fa-home" aria-hidden="true"></i> SignUp
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="" id="listicon">
+                    <app-usericon [profileimage] = "profileimage"  ></app-usericon>
+            </div>
         </div>
     </nav>
 </div>

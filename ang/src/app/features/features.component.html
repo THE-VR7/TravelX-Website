@@ -8,7 +8,7 @@
                     <div class="feature-img">
                         <img src="assets/images/features/destinations/{{feat.image}}" >
                     </div>
-                    <a [routerLink]="[ '/package' ]" style="text-decoration: none;"> <span class="price">{{feat.price}}</span>
+                    <a [routerLink]="[ '/package' ]" (click)="setmessage(feat.place)"  style="text-decoration: none;"> <span class="price">{{feat.price}}</span>
                           
                         <!--    Ratings will add afterwards 
                             <span class="ratings">

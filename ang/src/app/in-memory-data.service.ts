@@ -9,15 +9,15 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
       const user = [
         { id: 1, name: 'Vineet', username: 'imVR7',email:'vineetrathor57@gmail.com',password :'welcome','bio': 'This is the VR7','phone':8171015682 ,'image':'1.jpg'},
-        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor007@gmail.com',password:'welcome','bio': null,'phone': null , 'image': null },
+        { id: 2, name: 'Vineet rathor', username: 'imV2',email:'vineetrathor007@gmail.com',password:'welcome','bio': null,'phone': null , 'image': '2.jpg' },
       ];   
 
       const menu = [
         {id: 1,title:'home',link: '/home'},
         {id: 2,title:'tour packages',link: '/tourpackage'},
         {id: 3,title:'blog',link: '/blog'},
-        {id: 4,title:'login',link: '/login'},
-        {id: 5,title:'signup',link: '/signup'},
+        // {id: 4,title:'login',link: '/login'},
+        // {id: 5,title:'signup',link: '/signup'},
         // {id: 6,title:'profile',link: '/:name/profile'},
       ];
 

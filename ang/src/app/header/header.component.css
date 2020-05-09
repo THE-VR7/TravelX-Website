@@ -8,6 +8,13 @@
 }
 .navbar-collapse {
     margin-left: 13%;
+    /* border: 2px solid white; */
+    font-family: poppins;
+    font-size: 20px;
+    /* padding-left: 1%; */
+}
+#logoicon{
+    display: none;
 }
 .navbar-dark .navbar-brand {
     font-size: 25px;
@@ -17,12 +24,13 @@
     background-color: black;
 }
 
-
-
-/* .navbar-dark .navbar-nav  ul li a:hover {
-    color: turquoise;
-    transition: 1s;
-} */
+.navbar-brand{
+    margin-left: 0.1%;
+}
+#listicon {
+    /* border: 1px solid white; */
+    float: right;
+}
 
 .navbar-nav {
     text-align: center;
@@ -30,7 +38,7 @@
 
 .nav-link {
     padding: .2rem 2rem;
-    margin: 0px 10px;
+    margin: 0px 7px;
 }
 .nav-link.active {
     background-color: rgb(13, 230, 13) ;
@@ -51,14 +59,31 @@
     
 } */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 991px) {
+    #logoicon {
+        display: block;
+    }
+    #listicon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbar-collapse {
+        margin-left: 3%;
+    }
+}
+
+
+
+@media only screen and (max-width: 757px) {
     .navbar-nav.ml-auto {
         background: rgba(0, 0, 0, 0.5);
     }
 
     .navbar-toggler {
         padding: 1px 5px;
-        font-size: 13px;
+        font-size: 17px;
         line-height: 0.3;
         background: transparent;
         border: none;
@@ -73,47 +98,12 @@
         box-shadow: none;
         outline: none ;
         outline-style: none;
-
     }
-    
+
 }
 
 .navbar-collapse ul li:hover  {
     display: block;
     background-color: transparent;
-    position: sticky;
-    /* margin-top: 5px;
-    margin-left: -15px; */
-    /* color: white; */
+    /* position: sticky; */
 }
-/* 
-            NOT USING RIGHT NOW, WILL BE USED WHEN CREATED LIST OF PROFILE
-
-.navbar-collapse ul li:hover  ul {
-    display: block;
-} */
-/* 
-.navbar-collapse ul li:hover  ul li {
-    width: 100px;
-    padding: 4px;
-    text-align: center;
-    background: transparent;
-    border-radius: 50px;
-
-}
-.navbar-collapse ul li:hover  ul li:last-child {
-    border-bottom: none;
-
-}
-
-.mainmenu ul li:hover  ul li a:hover {
-    color: turquoise
-} */
-
-.GreyHeader{
-    background-color: transparent;
-    }
-
-    .FireBrickRed {
-    background-color: black;
-    }

@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 })
 export class ContactusComponent implements OnInit {
 
-  contactusform : FormGroup;
+  public contactusform : FormGroup;
 
   constructor( private fb : FormBuilder ) { }
 

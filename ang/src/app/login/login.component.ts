@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginform : FormGroup;
   returnurl:String ;
+  public err:any =false ;
 
   constructor( private fb : FormBuilder, private auth: AuthenticationService ,
     private router : Router
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
       'password': [null,Validators.required]
     });
 
-    this.returnurl = this.route.queryParams['returnurl'] || '/';
+    this.returnurl = this.route.snapshot.queryParams['returnUrl'] || '/home';
     // this.wowService.init();
   }
 
@@ -35,8 +36,13 @@ export class LoginComponent implements OnInit {
     // console.log(formData);
     this.auth.login(formData).subscribe
     ((user) => {
-      console.log(user)
+      if(!user.name)
+     { 
+       this.err = true;
+     }
+     else{
       this.router.navigate([this.returnurl]);
+     }
     })
   }
 

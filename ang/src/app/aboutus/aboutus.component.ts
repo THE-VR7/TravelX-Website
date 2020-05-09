@@ -8,16 +8,16 @@ import {ConfigService} from '../config.service';
 })
 export class AboutusComponent implements OnInit {
 
-  intro = {  };
+ public intro:any = {  };
 
 
-  constructor( private config:ConfigService ) { }
+  constructor( public config:ConfigService ) { }
 
   ngOnInit() {
     this.intro = this.getintro();
   }
 
-  getintro(){
+ public getintro(){
     return this.config.getConfig().aboutus;
   }
 }
